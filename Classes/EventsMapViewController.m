@@ -14,13 +14,13 @@
 
 /*
  // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
+ - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+ if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+ // Custom initialization
+ }
+ return self;
+ }
+ */
 
 - (void) centrerNe:(id)sender {
 	//Centrage sur Neuchâtel
@@ -35,18 +35,56 @@
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
-	
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	[super viewDidLoad];
 	
 	[self centrerNe:nil];
 	
 	UIBarButtonItem *tmpLeftBarbtn = [[UIBarButtonItem alloc] initWithTitle:@"NE" style:UIBarButtonItemStyleBordered target:self action:@selector(centrerNe:)];
+	UIBarButtonItem *tmpRightBarbtn = [[UIBarButtonItem alloc] initWithTitle:@"Actualiser" style:UIBarButtonItemStyleBordered target:self action:@selector(refreshEvents:)];
 	
 	self.navigationItem.leftBarButtonItem = tmpLeftBarbtn;
+	self.navigationItem.rightBarButtonItem = tmpRightBarbtn;
 	[tmpLeftBarbtn release];
+	[tmpRightBarbtn release];
 	
+	[self refreshEvents];
+}
+
+- (void)refreshEvents:(id)sender {
+	[self refreshEvents];
+}
+
+- (void)refreshEvents {
+	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
 	
-	NSArray * jsonA = [[NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://vaucher.homeip.net/devios/test.json"] encoding:NSUTF8StringEncoding error:NULL] JSONValue];
+	NSURLRequest *eventsRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://vaucher.homeip.net/devios/test.json"]];
+	eventsData = [[NSMutableData alloc] init];
+	NSURLConnection *eventsUrlConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
+	if(eventsUrlConnection) {
+		//Ça va démarrer !
+	}
+	else {
+		//Ça marche pas :(
+		[eventsData release];
+	}
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+	//En-tête reçu
+	[eventsData setLength:0];
+}
+
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)someData {
+	[eventsData appendData:someData];
+}
+
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+	[connection release];
+	
+	NSArray * jsonA;
+	
+	jsonA = [[[NSString alloc] initWithData:eventsData encoding:NSUTF8StringEncoding] JSONValue];
+	
 	
 	for (int i = 0; i < [jsonA count]; i++) {
 		Event *tmpEvenement = [[Event alloc] init];
@@ -93,16 +131,13 @@
 		 @property (nonatomic) CLLocationCoordinate2D coordinate;
 		 @property (nonatomic, retain) NSString *adresse;
 		 */
-		 
-		 
-		//[self newAnnotation:map latitude:[[loc objectForKey:@"lat"] doubleValue] longitude:[[loc objectForKey:@"lng"] doubleValue]
-					 // titre:[jsonO objectForKey:@"titre"] soustitre:[jsonO objectForKey:@"shortdesc"]];
 	}
-	[super viewDidLoad];
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	
+	//Cette ligne doit être éxécutée à la fin des traitements
+	[eventsData release];
 }
-
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation {
 	
@@ -128,7 +163,7 @@
 	else {
 		NSLog(@"Pas d'image pour %@", ((Event *)annotationView.annotation).titre);
 		MKPinAnnotationView * pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"eventIdentifier"];
-			//TODO : utiliser une image par défaut
+		//TODO : utiliser une image par défaut
 		pinView.pinColor = MKPinAnnotationColorPurple;
 		pinView.canShowCallout = YES;
 		pinView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
@@ -144,7 +179,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
 	NSLog(@"%@ A été séléctionné !", ann.title);
 	
 	DetailsViewController *dvc = [[DetailsViewController alloc] initWithNibName:@"DetailsViewController" bundle:nil];
-
+	
 	dvc.objEvent = ann;
 	[self.navigationController pushViewController:dvc animated:YES];
 	[dvc release];
@@ -154,16 +189,16 @@ calloutAccessoryControlTapped:(UIControl *)control {
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
+	// Return YES for supported orientations
 	
-		//Toutes les orientatons autorisées sauf UpsideDown
+	//Toutes les orientatons autorisées sauf UpsideDown
 	if(interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) return NO;
 	else return YES;
 }
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
+	[super didReceiveMemoryWarning];
 	
 	
 	// Release any cached data, images, etc that aren't in use.
@@ -177,7 +212,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
 
 - (void)dealloc {
 	[eventsMap dealloc];
-    [super dealloc];
+	[super dealloc];
 }
 
 @synthesize eventsMap;

@@ -15,6 +15,7 @@
 
 @interface EventsMapViewController : UIViewController <MKMapViewDelegate> {
 	IBOutlet MKMapView *eventsMap;
+	NSMutableData *eventsData;
 }
 
 @property (retain) MKMapView *eventsMap;
