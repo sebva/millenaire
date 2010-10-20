@@ -14,17 +14,8 @@
 
 @synthesize objEvent;
 
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+	// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
@@ -50,43 +41,48 @@
 	
 	[cll release];
 	
-	NSString *url = [NSString stringWithFormat:@"http://maps.google.com/maps?saddr=%f,%f+(%@)&daddr=%f,%f+(%@)&hl=%@",
-					 currLoc.latitude, currLoc.longitude, @"Ma position",
-					 objEvent.coordinate.latitude, objEvent.coordinate.longitude, objEvent.titre,
-					 [[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode]];
+	NSURL *url = [[NSURL alloc] initWithScheme:@"http"
+										  host:@"maps.google.com"
+										  path:[NSString stringWithFormat:@"/maps?saddr=%f,%f+(%@)&daddr=%f,%f+(%@)&hl=%@",
+												currLoc.latitude, currLoc.longitude, @"Ma position",
+												objEvent.coordinate.latitude, objEvent.coordinate.longitude, objEvent.titre,
+												[[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode]]];
 	
-	NSLog(url);
 	
-	[[UIApplication sharedApplication] openURL:[NSURL URLWithString:[url stringByReplacingOccurrencesOfString:@" " withString:@"+"]]];
+	if([[UIApplication sharedApplication] canOpenURL:url])
+		[[UIApplication sharedApplication] openURL:url];
 		//[url release];
 		//*/
 }
 
-/*
-// Override to allow orientations other than the default portrait orientation.
+
+	// Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+		// Return YES for supported orientations
+	
+		//Toutes les orientatons autorisées sauf UpsideDown
+	if(interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) return NO;
+	else return YES;
 }
-*/
+ 
 
 - (void)didReceiveMemoryWarning {
-    // Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-    
-    // Release any cached data, images, etc that aren't in use.
+		// Releases the view if it doesn't have a superview.
+	[super didReceiveMemoryWarning];
+	
+		// Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
-    [super viewDidUnload];
-    // Release any retained subviews of the main view.
-    // e.g. self.myOutlet = nil;
+	[super viewDidUnload];
+		// Release any retained subviews of the main view.
+		// e.g. self.myOutlet = nil;
 }
 
 
 - (void)dealloc {
 	[objEvent release];
-    [super dealloc];
+	[super dealloc];
 }
 
 
