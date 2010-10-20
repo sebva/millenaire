@@ -33,4 +33,10 @@ ehthumbs.db
 Icon?
 Thumbs.db
 
-build
+# xcode noise
+build/*
+*.pbxuser
+*.mode1v3
+
+# osx noise
+profile
