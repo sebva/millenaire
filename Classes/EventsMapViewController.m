@@ -39,8 +39,14 @@
 	
 	[self centrerNe:nil];
 	
-	UIBarButtonItem *tmpLeftBarbtn = [[UIBarButtonItem alloc] initWithTitle:@"NE" style:UIBarButtonItemStyleBordered target:self action:@selector(centrerNe:)];
-	UIBarButtonItem *tmpRightBarbtn = [[UIBarButtonItem alloc] initWithTitle:@"Actualiser" style:UIBarButtonItemStyleBordered target:self action:@selector(refreshEvents:)];
+	UIBarButtonItem *tmpLeftBarbtn = [[UIBarButtonItem alloc]
+									  initWithTitle:@"NE"
+									  style:UIBarButtonItemStyleBordered
+									  target:self action:@selector(centrerNe:)];
+	UIBarButtonItem *tmpRightBarbtn = [[UIBarButtonItem alloc] 
+									   initWithTitle:@"Actualiser"
+									   style:UIBarButtonItemStyleBordered
+									   target:self action:@selector(refreshEvents:)];
 	
 	self.navigationItem.leftBarButtonItem = tmpLeftBarbtn;
 	self.navigationItem.rightBarButtonItem = tmpRightBarbtn;
@@ -81,10 +87,10 @@
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	[connection release];
 	
-	NSArray * jsonA;
+	NSString *jsonS = [[NSString alloc] initWithData:eventsData encoding:NSUTF8StringEncoding];
 	
-	jsonA = [[[NSString alloc] initWithData:eventsData encoding:NSUTF8StringEncoding] JSONValue];
-	
+	NSArray * jsonA = [jsonS JSONValue];
+	[jsonS release];
 	
 	for (int i = 0; i < [jsonA count]; i++) {
 		Event *tmpEvenement = [[Event alloc] init];

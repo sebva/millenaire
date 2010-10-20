@@ -18,6 +18,9 @@
 	NSMutableData *eventsData;
 }
 
+- (void)refreshEvents:(id)sender;
+- (void)refreshEvents;
+
 @property (retain) MKMapView *eventsMap;
 
 @end
