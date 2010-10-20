@@ -217,7 +217,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
 
 
 - (void)dealloc {
-	[eventsMap dealloc];
+	[eventsMap release];
 	[super dealloc];
 }
 
