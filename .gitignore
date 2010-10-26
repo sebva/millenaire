@@ -40,3 +40,4 @@ build/*
 
 # osx noise
 profile
+.DS_Store
