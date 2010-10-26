@@ -32,15 +32,12 @@
 
 - (void)naviTo:(id)sender {
 	
-		//[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.google.com"]];
+	//[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.google.com"]];
 	
-		///*
-	CLLocationCoordinate2D currLoc; 
-	CLLocation *cll = [[CLLocation alloc] init];
-	currLoc = cll.coordinate;
+	//TODO: récupérer la position actuelle
+	CLLocationCoordinate2D currLoc={0.0,0.0};
 	
-	[cll release];
-	
+	//*
 	NSURL *url = [[NSURL alloc] initWithScheme:@"http"
 										  host:@"maps.google.com"
 										  path:[NSString stringWithFormat:@"/maps?saddr=%f,%f+(%@)&daddr=%f,%f+(%@)&hl=%@",
@@ -49,10 +46,14 @@
 												[[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode]]];
 	
 	
-	if([[UIApplication sharedApplication] canOpenURL:url])
+	if([[UIApplication sharedApplication] canOpenURL:url] && url!=nil)
 		[[UIApplication sharedApplication] openURL:url];
-		//[url release];
-		//*/
+	else
+		NSLog(@"L'application ne peut pas ouvrir %@", url);
+	
+	[url release];
+	//[cll release];
+	//*/
 }
 
 
