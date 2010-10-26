@@ -12,13 +12,15 @@
 #import "Event.h"
 
 
-@interface EventsMapViewController : UIViewController <MKMapViewDelegate> {
+@interface EventsMapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate> {
 	IBOutlet MKMapView *eventsMap;
 	NSMutableData *eventsData;
 }
 
 - (void)refreshEvents:(id)sender;
 - (void)refreshEvents;
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation;
 
 @property (retain) MKMapView *eventsMap;
 

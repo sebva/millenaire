@@ -12,7 +12,7 @@
 
 @interface DetailsViewController : UIViewController {
     IBOutlet UIImageView *pbx1;
-	IBOutlet UIScrollView *scrImgs;
+	IBOutlet UILabel *lblText;
 	Event *objEvent;
 }
 

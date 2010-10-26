@@ -23,6 +23,10 @@
 	[eventsMap setRegion:NEcoord animated:TRUE];
 }
 
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+	
+}
+
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	[super viewDidLoad];
@@ -40,6 +44,9 @@
 	
 	self.navigationItem.leftBarButtonItem = tmpLeftBarbtn;
 	self.navigationItem.rightBarButtonItem = tmpRightBarbtn;
+	
+	self.navigationController.navigationBar.translucent = YES;
+	
 	[tmpLeftBarbtn release];
 	[tmpRightBarbtn release];
 	
