@@ -98,7 +98,7 @@
 		
 		
 		NSDictionary *loc=[jsonO objectForKey:@"loc"];
-		tmpEvenement.idE = [[jsonO objectForKey:@"id"] integerValue];
+		tmpEvenement.idE = (NSInteger *)[[jsonO objectForKey:@"id"] integerValue];
 		tmpEvenement.titre = [jsonO objectForKey:@"titre"];
 		tmpEvenement.shortdesc = [jsonO objectForKey:@"shortdesc"];
 		

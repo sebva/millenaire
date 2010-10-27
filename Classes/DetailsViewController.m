@@ -7,7 +7,6 @@
 //
 
 #import "DetailsViewController.h"
-#import <CoreLocation/CoreLocation.h>
 
 
 @implementation DetailsViewController
@@ -21,22 +20,25 @@
 	
 	//On récupère la grande image
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-	/*
+	//*
 	NSURLRequest *eventsRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:
-																[NSString stringWithFormat:@"http://vaucher.homeip.net/devios/details.php?id=%i", objEvent.idE]]];
-	eventsData = [[NSMutableData alloc] init];
+																[NSString stringWithFormat:@"http://vaucher.homeip.net/devios/testd1.json"]]];
+	detailsData = [[NSMutableData alloc] init];
 	NSURLConnection *eventsUrlConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
 	if(eventsUrlConnection) {
 		//Ça va démarrer !
+		NSLog(@"Démarrage de la connexion");
 	}
 	else {
 		//Ça marche pas :(
-		[eventsData release];
-		lblText.text = @"Impossible d'obtenir une connection";
+		[detailsData release];
+		NSLog(@"Impossible d'obtenir une connection");
 	}
 	//*/
 	self.title = self.objEvent.titre;
-	pbx1.image = objEvent.thumb;
+	
+	pbx1 = [[TTImageView alloc] init];
+	pbx1.defaultImage = (UIImage *)objEvent.thumb;
 	
 	UIBarButtonItem *tmpRightBarbtn = [[UIBarButtonItem alloc] initWithTitle:@"Navi" style:UIBarButtonItemStyleBordered target:self action:@selector(naviTo:)];
 	
@@ -45,62 +47,49 @@
 	
 	
 }
-/*
+//*
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-	//En-tête reçu
-	[eventsData setLength:0];
+	NSLog(@"En-tête reçu");
+	[detailsData setLength:0];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)someData {
-	[eventsData appendData:someData];
+	NSLog(@"Datas reçues");
+	[detailsData appendData:someData];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	[connection release];
+	NSLog(@"Fin de la connexion");
 	
-	NSString *jsonS = [[NSString alloc] initWithData:eventsData encoding:NSUTF8StringEncoding];
+	NSString *jsonS = [[NSString alloc] initWithData:detailsData encoding:NSUTF8StringEncoding];
 	
-	NSArray * jsonA = [jsonS JSONValue];
+	NSLog(jsonS);
+	
+	NSDictionary * jsonO = [jsonS JSONValue];
 	[jsonS release];
 	
-	for (int i = 0; i < [jsonA count]; i++) {
-		Event *tmpEvenement = [[Event alloc] init];
-		
-		NSDictionary *jsonO = [jsonA objectAtIndex:i];
-		
-		NSLog(@"%@", [jsonO description]);
-		
-		
-		NSDictionary *loc=[jsonO objectForKey:@"loc"];
-		tmpEvenement.idE = [[jsonO objectForKey:@"id"] integerValue];
-		tmpEvenement.titre = [jsonO objectForKey:@"titre"];
-		tmpEvenement.shortdesc = [jsonO objectForKey:@"shortdesc"];
-		
-		tmpEvenement.beginDate = [NSDate dateWithTimeIntervalSince1970:[[jsonO objectForKey:@"begindate"] intValue]];
-		tmpEvenement.endDate = [NSDate dateWithTimeIntervalSince1970:[[jsonO objectForKey:@"enddate"] intValue]];
-		
-		//Image
-		
-		if ([jsonO objectForKey:@"thumb"] != nil) {
-			tmpEvenement.thumb = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[jsonO objectForKey:@"thumb"]]]];
-		}
-		else {
-			tmpEvenement.thumb = nil;
-		}
-		
-		
-		//tmpEvenement.thumb = [jsonO objectForKey:@""];
-		CLLocationCoordinate2D coord = {[[loc objectForKey:@"lat"] doubleValue], [[loc objectForKey:@"lng"] doubleValue]};
-		tmpEvenement.coordinate = coord;
-		
-		[eventsMap addAnnotation:tmpEvenement];
-		[tmpEvenement release];
-	}
+	NSLog(@"JSON:  %@", [jsonO description]);
+	
+	NSLog(@"Longdesc + adresse");
+	objEvent.longdesc = [jsonO objectForKey:@"longdesc"];
+	objEvent.adresse = [jsonO objectForKey:@"adr"];
+	
+	//Image
+	NSLog(@"Image :");
+	
+	//NE MARCHE PAS, FAIT SYSTEMATIQUEMENT TOUT PLANTER !!! TODO TODO TODO TODO TODO
+	
+	//pbx1 = [[TTImageView alloc] init];
+	//pbx1.urlPath = [jsonO objectForKey:@"imgs"];
+	
+	//pbx1.urlPath = @"http://notrehistoire.ch.s3.amazonaws.com/photos/2009/10/654475b5053c0e33_JPG_530x530_q85.jpg";
+	[self.view addSubview:pbx1];
 	
 	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 	
 	//Cette ligne doit être éxécutée à la fin des traitements
-	[eventsData release];
+	[detailsData release];
 }
 //*/
 - (void)naviTo:(id)sender {
@@ -154,7 +143,10 @@
 
 
 - (void)dealloc {
+	[objEvent.imgs release];
 	[objEvent release];
+	if(detailsData == nil)
+		[detailsData release];
 	[super dealloc];
 }
 
