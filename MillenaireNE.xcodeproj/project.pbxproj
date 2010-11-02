@@ -34,7 +34,7 @@
 		9A939FE7128044DB00FD6E1D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A939FE6128044DB00FD6E1D /* CFNetwork.framework */; };
 		BE5E98BB125526DF00320672 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5E98B9125526DF00320672 /* DetailsViewController.m */; };
 		BE5E98BC125526DF00320672 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5E98BA125526DF00320672 /* DetailsViewController.xib */; };
-		BE60B3D1126E44F000C97A27 /* MainWindow_iPad.xib.ios4 in Resources */ = {isa = PBXBuildFile; fileRef = BE60B3D0126E44F000C97A27 /* MainWindow_iPad.xib.ios4 */; };
+		BE60B3D1126E44F000C97A27 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE60B3D0126E44F000C97A27 /* MainWindow_iPad.xib */; };
 		BE60B40F126E4A5300C97A27 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = BE60B40E126E4A5300C97A27 /* icon.png */; };
 		BE60B41B126E4C9E00C97A27 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = BE60B41A126E4C9E00C97A27 /* icon-72.png */; };
 		BE658E7A12567F9400CE30C2 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE658E7912567F9400CE30C2 /* icon@2x.png */; };
@@ -429,7 +429,7 @@
 		BE5E98B8125526DF00320672 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		BE5E98B9125526DF00320672 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		BE5E98BA125526DF00320672 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DetailsViewController.xib; path = Classes/DetailsViewController.xib; sourceTree = "<group>"; };
-		BE60B3D0126E44F000C97A27 /* MainWindow_iPad.xib.ios4 */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = MainWindow_iPad.xib.ios4; path = Classes/MainWindow_iPad.xib.ios4; sourceTree = "<group>"; };
+		BE60B3D0126E44F000C97A27 /* MainWindow_iPad.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MainWindow_iPad.xib; path = Classes/MainWindow_iPad.xib; sourceTree = "<group>"; };
 		BE60B40E126E4A5300C97A27 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		BE60B41A126E4C9E00C97A27 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		BE658E7912567F9400CE30C2 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
@@ -518,7 +518,7 @@
 				BE82D2EC1256906F00AF02A3 /* default.png */,
 				BE5E98BA125526DF00320672 /* DetailsViewController.xib */,
 				9A72DD8F1252174900455008 /* EventsMapViewController.xib */,
-				BE60B3D0126E44F000C97A27 /* MainWindow_iPad.xib.ios4 */,
+				BE60B3D0126E44F000C97A27 /* MainWindow_iPad.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* MillenaireNE-Info.plist */,
 			);
@@ -1045,7 +1045,7 @@
 				BE5E98BC125526DF00320672 /* DetailsViewController.xib in Resources */,
 				BE658E7A12567F9400CE30C2 /* icon@2x.png in Resources */,
 				BE82D2ED1256906F00AF02A3 /* default.png in Resources */,
-				BE60B3D1126E44F000C97A27 /* MainWindow_iPad.xib.ios4 in Resources */,
+				BE60B3D1126E44F000C97A27 /* MainWindow_iPad.xib in Resources */,
 				BE60B40F126E4A5300C97A27 /* icon.png in Resources */,
 				BE60B41B126E4C9E00C97A27 /* icon-72.png in Resources */,
 			);
