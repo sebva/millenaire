@@ -45,7 +45,7 @@
 	self.navigationItem.leftBarButtonItem = tmpLeftBarbtn;
 	self.navigationItem.rightBarButtonItem = tmpRightBarbtn;
 	
-	self.navigationController.navigationBar.translucent = YES;
+	TTNetworkRequestStarted();
 	
 	[tmpLeftBarbtn release];
 	[tmpRightBarbtn release];
@@ -136,7 +136,7 @@
 		 */
 	}
 	
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	TTNetworkRequestStopped();
 	
 	//Cette ligne doit être éxécutée à la fin des traitements
 	[eventsData release];

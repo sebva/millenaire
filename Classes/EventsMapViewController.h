@@ -11,6 +11,8 @@
 #import "JSON.h"
 #import "Event.h"
 
+#import <Three20/Three20.h>
+
 
 @interface EventsMapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate> {
 	IBOutlet MKMapView *eventsMap;
