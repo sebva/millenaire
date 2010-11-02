@@ -1,0 +1,5 @@
+2-3 things to remember:
+
+Set the -all_load and -ObjC linker flags in RELEASE AND DEBUG !!
+    This ensures Three20 can load all its modules correctly.
+
