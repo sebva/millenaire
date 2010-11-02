@@ -72,12 +72,13 @@
 	
 	NSLog(@"Longdesc + adresse");
 	objEvent.longdesc = [jsonO objectForKey:@"longdesc"];
+	lblText.text = objEvent.longdesc;
+	
 	objEvent.adresse = [jsonO objectForKey:@"adr"];
 	
 	//Image
 	NSLog(@"Image :");
 	pbx1.urlPath = [jsonO objectForKey:@"imgs"];
-	[self.view addSubview:pbx1];
 	
 	TTNetworkRequestStopped();
 	
