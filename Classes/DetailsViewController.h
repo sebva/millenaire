@@ -19,7 +19,7 @@
 
 @interface DetailsViewController : UIViewController {
     IBOutlet TTImageView *pbx1;
-	IBOutlet UILabel *lblText;
+	IBOutlet UITextView *lblText;
 	Event *objEvent;
 	
 	NSMutableData *detailsData;
