@@ -24,7 +24,7 @@
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-	
+	//TODO: Update the user's location automatically
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
