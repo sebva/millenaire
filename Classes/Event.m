@@ -30,7 +30,6 @@
 }
 
 - (void) dealloc {
-	[idE release];
 	[titre release];
 	[shortdesc release];
 	[longdesc release];
