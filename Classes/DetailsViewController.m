@@ -19,10 +19,10 @@
     [super viewDidLoad];
 	
 	//On récupère la grande image
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-	//*
+	TTNetworkRequestStarted();
+	
 	NSURLRequest *eventsRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:
-																[NSString stringWithFormat:@"http://vaucher.homeip.net/devios/testd1.json"]]];
+																[NSString stringWithFormat:@"http://vaucher.homeip.net/devios/testd%i.json", objEvent.idE]]];
 	detailsData = [[NSMutableData alloc] init];
 	NSURLConnection *eventsUrlConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
 	if(eventsUrlConnection) {
@@ -34,10 +34,9 @@
 		[detailsData release];
 		NSLog(@"Impossible d'obtenir une connection");
 	}
-	//*/
+
 	self.title = self.objEvent.titre;
 	
-	pbx1 = [[TTImageView alloc] init];
 	pbx1.defaultImage = (UIImage *)objEvent.thumb;
 	
 	UIBarButtonItem *tmpRightBarbtn = [[UIBarButtonItem alloc] initWithTitle:@"Navi" style:UIBarButtonItemStyleBordered target:self action:@selector(naviTo:)];
@@ -47,7 +46,7 @@
 	
 	
 }
-//*
+
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
 	NSLog(@"En-tête reçu");
 	[detailsData setLength:0];
@@ -77,16 +76,10 @@
 	
 	//Image
 	NSLog(@"Image :");
-	
-	//NE MARCHE PAS, FAIT SYSTEMATIQUEMENT TOUT PLANTER !!! TODO TODO TODO TODO TODO
-	
-	//pbx1 = [[TTImageView alloc] init];
-	//pbx1.urlPath = [jsonO objectForKey:@"imgs"];
-	
-	//pbx1.urlPath = @"http://notrehistoire.ch.s3.amazonaws.com/photos/2009/10/654475b5053c0e33_JPG_530x530_q85.jpg";
+	pbx1.urlPath = [jsonO objectForKey:@"imgs"];
 	[self.view addSubview:pbx1];
 	
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+	TTNetworkRequestStopped();
 	
 	//Cette ligne doit être éxécutée à la fin des traitements
 	[detailsData release];

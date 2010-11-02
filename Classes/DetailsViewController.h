@@ -10,11 +10,15 @@
 #import "Event.h"
 #import "JSON.h"
 #import <CoreLocation/CoreLocation.h>
+//Three20
+#import <Three20/Three20.h>
+#import <Three20Core/NSStringAdditions.h>
 #import <Three20UI/TTImageView.h>
 
 
+
 @interface DetailsViewController : UIViewController {
-    TTImageView *pbx1;
+    IBOutlet TTImageView *pbx1;
 	IBOutlet UILabel *lblText;
 	Event *objEvent;
 	
