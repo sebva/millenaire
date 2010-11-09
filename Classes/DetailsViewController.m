@@ -85,7 +85,7 @@
 	//Cette ligne doit être éxécutée à la fin des traitements
 	[detailsData release];
 }
-//*/
+
 - (void)naviTo:(id)sender {
 	
 	//TODO: récupérer la position actuelle
