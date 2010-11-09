@@ -45,7 +45,6 @@
 	self.navigationItem.leftBarButtonItem = tmpLeftBarbtn;
 	self.navigationItem.rightBarButtonItem = tmpRightBarbtn;
 	
-	TTNetworkRequestStarted();
 	
 	[tmpLeftBarbtn release];
 	[tmpRightBarbtn release];
@@ -58,7 +57,7 @@
 }
 
 - (void)refreshEvents {
-	[UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+	TTNetworkRequestStarted();
 	
 	NSURLRequest *eventsRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:@"http://vaucher.homeip.net/devios/test.json"]];
 	eventsData = [[NSMutableData alloc] init];
@@ -69,6 +68,7 @@
 	else {
 		//Ça marche pas :(
 		[eventsData release];
+		TTNetworkRequestStopped();
 	}
 }
 
