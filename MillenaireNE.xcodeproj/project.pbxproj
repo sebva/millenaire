@@ -40,7 +40,6 @@
 		BE60B41B126E4C9E00C97A27 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = BE60B41A126E4C9E00C97A27 /* icon-72.png */; };
 		BE658E7A12567F9400CE30C2 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE658E7912567F9400CE30C2 /* icon@2x.png */; };
 		BE82D2C512568C2C00AF02A3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE82D2C412568C2C00AF02A3 /* CoreLocation.framework */; };
-		BE82D2ED1256906F00AF02A3 /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = BE82D2EC1256906F00AF02A3 /* default.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -437,7 +436,6 @@
 		BE60B41A126E4C9E00C97A27 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		BE658E7912567F9400CE30C2 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		BE82D2C412568C2C00AF02A3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		BE82D2EC1256906F00AF02A3 /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -518,7 +516,6 @@
 				BE60B41A126E4C9E00C97A27 /* icon-72.png */,
 				BE60B40E126E4A5300C97A27 /* icon.png */,
 				BE658E7912567F9400CE30C2 /* icon@2x.png */,
-				BE82D2EC1256906F00AF02A3 /* default.png */,
 				BE5E98BA125526DF00320672 /* DetailsViewController.xib */,
 				9A72DD8F1252174900455008 /* EventsMapViewController.xib */,
 				BE60B3D0126E44F000C97A27 /* MainWindow_iPad.xib */,
@@ -1049,7 +1046,6 @@
 				9AC9BBE5128990F200F24236 /* EventsMapViewController.xib in Resources */,
 				BE5E98BC125526DF00320672 /* DetailsViewController.xib in Resources */,
 				BE658E7A12567F9400CE30C2 /* icon@2x.png in Resources */,
-				BE82D2ED1256906F00AF02A3 /* default.png in Resources */,
 				BE60B3D1126E44F000C97A27 /* MainWindow_iPad.xib in Resources */,
 				BE60B40F126E4A5300C97A27 /* icon.png in Resources */,
 				BE60B41B126E4C9E00C97A27 /* icon-72.png in Resources */,

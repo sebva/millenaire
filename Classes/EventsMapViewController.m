@@ -114,26 +114,12 @@
 			tmpEvenement.thumb = nil;
 		}
 		
-		
-		//tmpEvenement.thumb = [jsonO objectForKey:@""];
 		CLLocationCoordinate2D coord = {[[loc objectForKey:@"lat"] doubleValue], [[loc objectForKey:@"lng"] doubleValue]};
 		tmpEvenement.coordinate = coord;
 		
 		[eventsMap addAnnotation:tmpEvenement];
 		[tmpEvenement release];
 		
-		/*
-		 @property (nonatomic) NSInteger *idE;
-		 @property (nonatomic, retain) NSString *titre;
-		 @property (nonatomic, retain) NSString *shortdesc;
-		 @property (nonatomic, retain) NSString *longdesc;
-		 @property (nonatomic, retain) NSDate *beginDate;
-		 @property (nonatomic, retain) NSDate *endDate;
-		 @property (nonatomic, retain) UIImage *thumb;
-		 @property (nonatomic, retain) NSArray *imgs;
-		 @property (nonatomic) CLLocationCoordinate2D coordinate;
-		 @property (nonatomic, retain) NSString *adresse;
-		 */
 	}
 	
 	TTNetworkRequestStopped();

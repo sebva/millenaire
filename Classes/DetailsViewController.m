@@ -88,12 +88,9 @@
 //*/
 - (void)naviTo:(id)sender {
 	
-	//[[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.google.com"]];
-	
 	//TODO: récupérer la position actuelle
 	CLLocationCoordinate2D currLoc={0.0,0.0};
 	
-	//*
 	NSURL *url = [[NSURL alloc] initWithScheme:@"http"
 										  host:@"maps.google.com"
 										  path:[NSString stringWithFormat:@"/maps?saddr=%f,%f+(%@)&daddr=%f,%f+(%@)&hl=%@",
@@ -108,8 +105,6 @@
 		NSLog(@"L'application ne peut pas ouvrir %@", url);
 	
 	[url release];
-	//[cll release];
-	//*/
 }
 
 // Override to allow orientations other than the default portrait orientation.
