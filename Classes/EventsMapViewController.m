@@ -38,7 +38,7 @@
 									  style:UIBarButtonItemStyleBordered
 									  target:self action:@selector(centrerNe:)];
 	UIBarButtonItem *tmpRightBarbtn = [[UIBarButtonItem alloc] 
-									   initWithTitle:@"Actualiser"
+									   initWithTitle:NSLocalizedString(@"Actualiser", nil)
 									   style:UIBarButtonItemStyleBordered
 									   target:self action:@selector(refreshEvents:)];
 	

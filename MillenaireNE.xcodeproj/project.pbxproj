@@ -23,7 +23,6 @@
 		320F2C48872C2E2C4DF86205 /* libThree20UI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 320F2C48872C2E2C4DF86204 /* libThree20UI.a */; };
 		9A36871212784397005875CF /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		9A72DD901252174900455008 /* EventsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A72DD8E1252174900455008 /* EventsMapViewController.m */; };
-		9A72DD911252174900455008 /* EventsMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A72DD8F1252174900455008 /* EventsMapViewController.xib */; };
 		9A72DDCD125219F100455008 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A72DDCC125219F100455008 /* MapKit.framework */; };
 		9A72DE6812521A7B00455008 /* NSObject+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A72DDDF12521A7B00455008 /* NSObject+SBJSON.m */; };
 		9A72DE6912521A7B00455008 /* NSString+SBJSON.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A72DDE112521A7B00455008 /* NSString+SBJSON.m */; };
@@ -32,6 +31,8 @@
 		9A72DE6C12521A7B00455008 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A72DDE712521A7B00455008 /* SBJsonWriter.m */; };
 		9A72DF2112521D9100455008 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A72DF2012521D9100455008 /* Event.m */; };
 		9A939FE7128044DB00FD6E1D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A939FE6128044DB00FD6E1D /* CFNetwork.framework */; };
+		9AC9BBE5128990F200F24236 /* EventsMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A72DD8F1252174900455008 /* EventsMapViewController.xib */; };
+		9AC9BBEA128991DD00F24236 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC9BBE8128991DD00F24236 /* Localizable.strings */; };
 		BE5E98BB125526DF00320672 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5E98B9125526DF00320672 /* DetailsViewController.m */; };
 		BE5E98BC125526DF00320672 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE5E98BA125526DF00320672 /* DetailsViewController.xib */; };
 		BE60B3D1126E44F000C97A27 /* MainWindow_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE60B3D0126E44F000C97A27 /* MainWindow_iPad.xib */; };
@@ -426,6 +427,8 @@
 		9A72DF2012521D9100455008 /* Event.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Event.m; sourceTree = "<group>"; };
 		9A939FE6128044DB00FD6E1D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9A93A06012804A9C00FD6E1D /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ../three20/src/Three20/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
+		9AC9BBE9128991DD00F24236 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9AC9BC06128992BE00F24236 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		BE5E98B8125526DF00320672 /* DetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailsViewController.h; sourceTree = "<group>"; };
 		BE5E98B9125526DF00320672 /* DetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		BE5E98BA125526DF00320672 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = DetailsViewController.xib; path = Classes/DetailsViewController.xib; sourceTree = "<group>"; };
@@ -521,6 +524,7 @@
 				BE60B3D0126E44F000C97A27 /* MainWindow_iPad.xib */,
 				28AD735F0D9D9599002E5188 /* MainWindow.xib */,
 				8D1107310486CEB800E47090 /* MillenaireNE-Info.plist */,
+				9AC9BBE8128991DD00F24236 /* Localizable.strings */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -697,6 +701,7 @@
 				French,
 				German,
 				en,
+				fr,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			projectDirPath = "";
@@ -1041,13 +1046,14 @@
 			files = (
 				320B6C86F11D9990244A9731 /* Three20.bundle in Resources */,
 				9A36871212784397005875CF /* MainWindow.xib in Resources */,
-				9A72DD911252174900455008 /* EventsMapViewController.xib in Resources */,
+				9AC9BBE5128990F200F24236 /* EventsMapViewController.xib in Resources */,
 				BE5E98BC125526DF00320672 /* DetailsViewController.xib in Resources */,
 				BE658E7A12567F9400CE30C2 /* icon@2x.png in Resources */,
 				BE82D2ED1256906F00AF02A3 /* default.png in Resources */,
 				BE60B3D1126E44F000C97A27 /* MainWindow_iPad.xib in Resources */,
 				BE60B40F126E4A5300C97A27 /* icon.png in Resources */,
 				BE60B41B126E4C9E00C97A27 /* icon-72.png in Resources */,
+				9AC9BBEA128991DD00F24236 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1110,6 +1116,18 @@
 			targetProxy = 320F2C48872C2E2C4DF86202 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9AC9BBE8128991DD00F24236 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9AC9BBE9128991DD00F24236 /* fr */,
+				9AC9BC06128992BE00F24236 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		1D6058940D05DD3E006BFB54 /* Debug */ = {
