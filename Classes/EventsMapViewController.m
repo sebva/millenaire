@@ -81,6 +81,13 @@
 	[eventsData appendData:someData];
 }
 
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+	//La connexion a rencontré une erreur
+	
+	
+	[connection release];
+}
+
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
 	[connection release];
 	
