@@ -94,7 +94,7 @@
 	NSURL *url = [[NSURL alloc] initWithScheme:@"http"
 										  host:@"maps.google.com"
 										  path:[NSString stringWithFormat:@"/maps?saddr=%f,%f+(%@)&daddr=%f,%f+(%@)&hl=%@",
-												currLoc.latitude, currLoc.longitude, @"Ma position",
+												currLoc.latitude, currLoc.longitude, NSLocalizedString(@"Ma position", nil),
 												objEvent.coordinate.latitude, objEvent.coordinate.longitude, objEvent.titre,
 												[[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode]]];
 	
