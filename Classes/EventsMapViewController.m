@@ -185,11 +185,8 @@ calloutAccessoryControlTapped:(UIControl *)control {
 
 // Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	// Return YES for supported orientations
-	
-	//Toutes les orientatons autorisées sauf UpsideDown
-	if(interfaceOrientation==UIInterfaceOrientationPortraitUpsideDown) return NO;
-	else return YES;
+	//Sur iPhone: tout sauf upsideDown; Sur iPad: tout
+	return TTIsSupportedOrientation(interfaceOrientation);
 }
 
 - (void)didReceiveMemoryWarning {
