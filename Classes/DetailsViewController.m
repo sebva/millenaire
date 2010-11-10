@@ -98,11 +98,7 @@
 												objEvent.coordinate.latitude, objEvent.coordinate.longitude, objEvent.titre,
 												[[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode]]];
 	
-	
-	if([[UIApplication sharedApplication] canOpenURL:url] && url!=nil)
-		[[UIApplication sharedApplication] openURL:url];
-	else
-		NSLog(@"L'application ne peut pas ouvrir %@", url);
+	[self.navigationController pushViewController:TTOpenURL([url absoluteString]) animated:YES];
 	
 	[url release];
 }
