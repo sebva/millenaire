@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import "JSON.h"
+#import "MillenaireNEAppDelegate.h"
 #import "Event.h"
 
 #import <Three20/Three20.h>

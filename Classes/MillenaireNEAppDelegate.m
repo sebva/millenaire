@@ -12,6 +12,7 @@
 
 @implementation MillenaireNEAppDelegate
 
+@synthesize servDomain;
 @synthesize window;
 @synthesize navigationController;
 
@@ -25,6 +26,9 @@
 	
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
+	
+	servDomain = (NSString *)[[NSString alloc] initWithString:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"config" ofType:@"plist"]] objectForKey:@"servDomain"]];
+
 }
 
 
@@ -37,6 +41,7 @@
 #pragma mark Memory management
 
 - (void)dealloc {
+	[servDomain release];
 	[navigationController release];
 	[window release];
 	[super dealloc];

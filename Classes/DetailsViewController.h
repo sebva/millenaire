@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "Event.h"
+#import "MillenaireNEAppDelegate.h"
 #import "JSON.h"
 #import <CoreLocation/CoreLocation.h>
+
 //Three20
 #import <Three20/Three20.h>
 #import <Three20Core/NSStringAdditions.h>

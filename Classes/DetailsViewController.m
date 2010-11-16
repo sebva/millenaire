@@ -21,8 +21,11 @@
 	//On récupère la grande image
 	TTNetworkRequestStarted();
 	
-	NSURLRequest *eventsRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:
-																[NSString stringWithFormat:@"http://vaucher.homeip.net/devios/testd%i.json", objEvent.idE]]];
+	NSURLRequest *eventsRequest = [NSURLRequest
+								   requestWithURL:[NSURL URLWithString:
+												   [NSString stringWithFormat:@"http://%@/devios/testd%i.json",
+												   ((MillenaireNEAppDelegate *)[[UIApplication sharedApplication] delegate]).servDomain,
+												   objEvent.idE]]];
 	detailsData = [[NSMutableData alloc] init];
 	NSURLConnection *eventsUrlConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
 	if(eventsUrlConnection) {
