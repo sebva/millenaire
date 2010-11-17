@@ -86,9 +86,9 @@
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
 	//La connexion a rencontré une erreur
-	
-	
+	TTAlert(@"Erreur de connexion !");
 	[connection release];
+	TTNetworkRequestStopped();
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -96,8 +96,20 @@
 	
 	NSString *jsonS = [[NSString alloc] initWithData:eventsData encoding:NSUTF8StringEncoding];
 	
-	NSArray * jsonA = [jsonS JSONValue];
+	
+	NSError *error;
+	//NSArray * jsonA = [jsonS JSONValue];
+	
+	SBJsonBase *json = [[SBJsonBase new] autorelease];
+	NSArray *jsonA = [json objectWithString:jsonS error:&error];
 	[jsonS release];
+	
+	if (jsonA == nil)
+	{
+		TTAlert([NSString stringWithFormat:@"JSON parsing failed: %@", [error localizedDescription]]);
+		return;
+	}
+	
 	
 	for (int i = 0; i < [jsonA count]; i++) {
 		Event *tmpEvenement = [[Event alloc] init];
