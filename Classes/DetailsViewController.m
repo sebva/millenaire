@@ -92,7 +92,7 @@
 - (void)naviTo:(id)sender {
 	
 	//TODO: récupérer la position actuelle
-	CLLocationCoordinate2D currLoc={0.0,0.0};
+	CLLocationCoordinate2D currLoc={46.990281, 6.930567};
 	
 	NSURL *url = [[NSURL alloc] initWithScheme:@"http"
 										  host:@"maps.google.com"
