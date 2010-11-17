@@ -96,20 +96,8 @@
 	
 	NSString *jsonS = [[NSString alloc] initWithData:eventsData encoding:NSUTF8StringEncoding];
 	
-	
-	NSError *error;
-	//NSArray * jsonA = [jsonS JSONValue];
-	
-	SBJsonBase *json = [[SBJsonBase new] autorelease];
-	NSArray *jsonA = [json objectWithString:jsonS error:&error];
+	NSArray * jsonA = [jsonS JSONValue];
 	[jsonS release];
-	
-	if (jsonA == nil)
-	{
-		TTAlert([NSString stringWithFormat:@"JSON parsing failed: %@", [error localizedDescription]]);
-		return;
-	}
-	
 	
 	for (int i = 0; i < [jsonA count]; i++) {
 		Event *tmpEvenement = [[Event alloc] init];
