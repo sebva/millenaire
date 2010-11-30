@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>servDomain</key>
-	<string>localhost/~MacMini</string>
+	<string>192.168.1.35/~MacMini</string>
 </dict>
 </plist>
