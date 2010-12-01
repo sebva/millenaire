@@ -34,7 +34,7 @@
 									  target:self action:@selector(centrerNe:)];
 	UIBarButtonItem *tmpRightBarbtn = [[UIBarButtonItem alloc] 
 									   initWithTitle:NSLocalizedString(@"Actualiser", nil)
-									   style:UIBarButtonItemStyleBordered
+									   style:UIBarButtonSystemItemRefresh
 									   target:self action:@selector(refreshEvents:)];
 	
 	self.navigationItem.leftBarButtonItem = tmpLeftBarbtn;
