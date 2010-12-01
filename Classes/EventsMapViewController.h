@@ -18,6 +18,7 @@
 @interface EventsMapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate> {
 	IBOutlet MKMapView *eventsMap;
 	NSMutableData *eventsData;
+	IBOutlet UIActivityIndicatorView *spinner;
 }
 
 - (void)refreshEvents:(id)sender;

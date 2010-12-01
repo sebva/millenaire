@@ -11,11 +11,13 @@
     UIWindow *window;
     UINavigationController *navigationController;
 	NSString *servDomain;
+	CLLocation *currentLocation;
 }
 
 @property (nonatomic, retain) NSString *servDomain;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
+@property (nonatomic, retain) CLLocation *currentLocation;
 
 @end
 

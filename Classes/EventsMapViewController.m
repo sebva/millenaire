@@ -27,12 +27,7 @@
 	//TODO: Update the user's location automatically
 }
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
-- (void)viewDidLoad {
-	[super viewDidLoad];
-	
-	[self centrerNe:nil];
-	
+- (void)afficherBoutons {
 	UIBarButtonItem *tmpLeftBarbtn = [[UIBarButtonItem alloc]
 									  initWithTitle:@"NE"
 									  style:UIBarButtonItemStyleBordered
@@ -48,7 +43,13 @@
 	
 	[tmpLeftBarbtn release];
 	[tmpRightBarbtn release];
+}
+
+// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad {
+	[super viewDidLoad];
 	
+	[self centrerNe:nil];
 	[self refreshEvents];
 }
 
@@ -132,6 +133,9 @@
 		
 	}
 	
+	[spinner stopAnimating];
+	eventsMap.hidden = NO;
+	[self afficherBoutons];
 	TTNetworkRequestStopped();
 	
 	//Cette ligne doit être éxécutée à la fin des traitements
@@ -179,6 +183,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
 	
 	DetailsViewController *dvc = [[DetailsViewController alloc] initWithNibName:@"DetailsViewController" bundle:nil];
 	
+	((MillenaireNEAppDelegate *)[UIApplication sharedApplication].delegate).currentLocation = eventsMap.userLocation.location;
 	dvc.objEvent = ann;
 	[self.navigationController pushViewController:dvc animated:YES];
 	[dvc release];

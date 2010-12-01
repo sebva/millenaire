@@ -15,6 +15,7 @@
 @synthesize servDomain;
 @synthesize window;
 @synthesize navigationController;
+@synthesize currentLocation;
 
 
 #pragma mark -
@@ -29,6 +30,8 @@
 	
 	servDomain = (NSString *)[[NSString alloc] initWithString:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"config" ofType:@"plist"]] objectForKey:@"servDomain"]];
 
+	//We admit that the user is located in Neuchatel
+	currentLocation = [[CLLocation alloc] initWithLatitude:46.990281 longitude:6.930567];
 }
 
 
@@ -43,6 +46,7 @@
 - (void)dealloc {
 	[servDomain release];
 	[navigationController release];
+	[[currentLocation retain] release];
 	[window release];
 	[super dealloc];
 }

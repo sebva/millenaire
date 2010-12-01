@@ -54,20 +54,24 @@
 					<object class="IBUITextView" id="1018317932">
 						<reference key="NSNextResponder" ref="889975803"/>
 						<int key="NSvFlags">1316</int>
-						<string key="NSFrame">{{20, 213}, {280, 183}}</string>
+						<string key="NSFrame">{{20, 213}, {280, 60}}</string>
 						<reference key="NSSuperview" ref="889975803"/>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
-						<int key="IBUIContentMode">3</int>
+						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<bool key="IBUIShowsHorizontalScrollIndicator">NO</bool>
+						<int key="IBUIIndicatorStyle">1</int>
 						<bool key="IBUIDelaysContentTouches">NO</bool>
 						<bool key="IBUICanCancelContentTouches">NO</bool>
 						<bool key="IBUIBouncesZoom">NO</bool>
 						<bool key="IBUIEditable">NO</bool>
-						<string key="IBUIText">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+						<string type="base64-UTF8" key="IBUIText">Q2hhcmdlbWVudCBlbiBjb3Vycy4uLgrigKhWZXVpbGxleiBwYXRpZW50ZXI</string>
+						<int key="IBUITextAlignment">1</int>
 						<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 							<int key="IBUIAutocapitalizationType">2</int>
+							<int key="IBUIAutocorrectionType">1</int>
+							<int key="IBUIKeyboardAppearance">1</int>
 						</object>
 						<int key="IBUIDataDetectorTypes">2</int>
 					</object>
