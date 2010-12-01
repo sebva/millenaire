@@ -49,6 +49,10 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
+	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1000ne.png"]];
+	self.navigationItem.titleView = imageView;
+	[imageView release];
+	
 	[self centrerNe:nil];
 	[self refreshEvents];
 }

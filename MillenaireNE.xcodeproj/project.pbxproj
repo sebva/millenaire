@@ -27,6 +27,7 @@
 		9A155F1A129410EE0037B16D /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A155F11129410EE0037B16D /* SBJsonParser.m */; };
 		9A155F1B129410EE0037B16D /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A155F13129410EE0037B16D /* SBJsonStreamWriter.m */; };
 		9A155F1C129410EE0037B16D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A155F15129410EE0037B16D /* SBJsonWriter.m */; };
+		9A29E0E112A69A7E00C15BE6 /* 1000ne.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A29E0E012A69A7E00C15BE6 /* 1000ne.png */; };
 		9A36871212784397005875CF /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		9A72DD901252174900455008 /* EventsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A72DD8E1252174900455008 /* EventsMapViewController.m */; };
 		9A72DDCD125219F100455008 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A72DDCC125219F100455008 /* MapKit.framework */; };
@@ -423,6 +424,7 @@
 		9A155F14129410EE0037B16D /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBJsonWriter.h; path = Classes/JSON/Classes/SBJsonWriter.h; sourceTree = SOURCE_ROOT; };
 		9A155F15129410EE0037B16D /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = Classes/JSON/Classes/SBJsonWriter.m; sourceTree = SOURCE_ROOT; };
 		9A155F16129410EE0037B16D /* SBProxyForJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBProxyForJson.h; path = Classes/JSON/Classes/SBProxyForJson.h; sourceTree = SOURCE_ROOT; };
+		9A29E0E012A69A7E00C15BE6 /* 1000ne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1000ne.png; sourceTree = "<group>"; };
 		9A72DD8D1252174900455008 /* EventsMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsMapViewController.h; sourceTree = "<group>"; };
 		9A72DD8E1252174900455008 /* EventsMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsMapViewController.m; sourceTree = "<group>"; };
 		9A72DD8F1252174900455008 /* EventsMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventsMapViewController.xib; path = Classes/EventsMapViewController.xib; sourceTree = "<group>"; };
@@ -519,6 +521,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9A29E0E012A69A7E00C15BE6 /* 1000ne.png */,
 				320B6C86F11D9990244A9730 /* Three20.bundle */,
 				BE60B41A126E4C9E00C97A27 /* icon-72.png */,
 				BE60B40E126E4A5300C97A27 /* icon.png */,
@@ -1063,6 +1066,7 @@
 				BE60B41B126E4C9E00C97A27 /* icon-72.png in Resources */,
 				9AC9BBEA128991DD00F24236 /* Localizable.strings in Resources */,
 				9A99912D1292B28800BFE39A /* config.plist in Resources */,
+				9A29E0E112A69A7E00C15BE6 /* 1000ne.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
