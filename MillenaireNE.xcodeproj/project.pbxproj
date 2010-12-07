@@ -34,6 +34,7 @@
 		9A72DF2112521D9100455008 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A72DF2012521D9100455008 /* Event.m */; };
 		9A939FE7128044DB00FD6E1D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A939FE6128044DB00FD6E1D /* CFNetwork.framework */; };
 		9A99912D1292B28800BFE39A /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A99912C1292B28800BFE39A /* config.plist */; };
+		9A9CEF6312AE3C060059E5CB /* 1000ne@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A9CEF6212AE3C060059E5CB /* 1000ne@2x.png */; };
 		9AC9BBE5128990F200F24236 /* EventsMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A72DD8F1252174900455008 /* EventsMapViewController.xib */; };
 		9AC9BBEA128991DD00F24236 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC9BBE8128991DD00F24236 /* Localizable.strings */; };
 		BE5E98BB125526DF00320672 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5E98B9125526DF00320672 /* DetailsViewController.m */; };
@@ -434,6 +435,7 @@
 		9A939FE6128044DB00FD6E1D /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		9A93A06012804A9C00FD6E1D /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ./three20/src/Three20/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9A99912C1292B28800BFE39A /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
+		9A9CEF6212AE3C060059E5CB /* 1000ne@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1000ne@2x.png"; sourceTree = "<group>"; };
 		9AAE054C128AD0540012DBBF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AC9BBE9128991DD00F24236 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AC9BC06128992BE00F24236 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -521,6 +523,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9A9CEF6212AE3C060059E5CB /* 1000ne@2x.png */,
 				9A29E0E012A69A7E00C15BE6 /* 1000ne.png */,
 				320B6C86F11D9990244A9730 /* Three20.bundle */,
 				BE60B41A126E4C9E00C97A27 /* icon-72.png */,
@@ -1067,6 +1070,7 @@
 				9AC9BBEA128991DD00F24236 /* Localizable.strings in Resources */,
 				9A99912D1292B28800BFE39A /* config.plist in Resources */,
 				9A29E0E112A69A7E00C15BE6 /* 1000ne.png in Resources */,
+				9A9CEF6312AE3C060059E5CB /* 1000ne@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
