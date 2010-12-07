@@ -3,6 +3,6 @@
 <plist version="1.0">
 <dict>
 	<key>servDomain</key>
-	<string>vaucher.homeip.net</string>
+	<string>http://localhost/~MacMini/devios/new.json</string>
 </dict>
 </plist>

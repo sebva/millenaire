@@ -29,6 +29,12 @@
 		9A155F1C129410EE0037B16D /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A155F15129410EE0037B16D /* SBJsonWriter.m */; };
 		9A29E0E112A69A7E00C15BE6 /* 1000ne.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A29E0E012A69A7E00C15BE6 /* 1000ne.png */; };
 		9A36871212784397005875CF /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
+		9A7088B412AE69D600CFA94F /* culture.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7088AE12AE69D600CFA94F /* culture.png */; };
+		9A7088B512AE69D600CFA94F /* économie.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7088AF12AE69D600CFA94F /* économie.png */; };
+		9A7088B612AE69D600CFA94F /* identité.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7088B012AE69D600CFA94F /* identité.png */; };
+		9A7088B712AE69D600CFA94F /* politique.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7088B112AE69D600CFA94F /* politique.png */; };
+		9A7088B812AE69D600CFA94F /* religion.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7088B212AE69D600CFA94F /* religion.png */; };
+		9A7088B912AE69D600CFA94F /* urbanisme.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A7088B312AE69D600CFA94F /* urbanisme.png */; };
 		9A72DD901252174900455008 /* EventsMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A72DD8E1252174900455008 /* EventsMapViewController.m */; };
 		9A72DDCD125219F100455008 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A72DDCC125219F100455008 /* MapKit.framework */; };
 		9A72DF2112521D9100455008 /* Event.m in Sources */ = {isa = PBXBuildFile; fileRef = 9A72DF2012521D9100455008 /* Event.m */; };
@@ -426,6 +432,12 @@
 		9A155F15129410EE0037B16D /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SBJsonWriter.m; path = Classes/JSON/Classes/SBJsonWriter.m; sourceTree = SOURCE_ROOT; };
 		9A155F16129410EE0037B16D /* SBProxyForJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SBProxyForJson.h; path = Classes/JSON/Classes/SBProxyForJson.h; sourceTree = SOURCE_ROOT; };
 		9A29E0E012A69A7E00C15BE6 /* 1000ne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1000ne.png; sourceTree = "<group>"; };
+		9A7088AE12AE69D600CFA94F /* culture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = culture.png; sourceTree = "<group>"; };
+		9A7088AF12AE69D600CFA94F /* économie.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "économie.png"; sourceTree = "<group>"; };
+		9A7088B012AE69D600CFA94F /* identité.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "identité.png"; sourceTree = "<group>"; };
+		9A7088B112AE69D600CFA94F /* politique.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = politique.png; sourceTree = "<group>"; };
+		9A7088B212AE69D600CFA94F /* religion.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = religion.png; sourceTree = "<group>"; };
+		9A7088B312AE69D600CFA94F /* urbanisme.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = urbanisme.png; sourceTree = "<group>"; };
 		9A72DD8D1252174900455008 /* EventsMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventsMapViewController.h; sourceTree = "<group>"; };
 		9A72DD8E1252174900455008 /* EventsMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventsMapViewController.m; sourceTree = "<group>"; };
 		9A72DD8F1252174900455008 /* EventsMapViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = EventsMapViewController.xib; path = Classes/EventsMapViewController.xib; sourceTree = "<group>"; };
@@ -523,6 +535,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9A7088A912AE682500CFA94F /* regards */,
 				9A9CEF6212AE3C060059E5CB /* 1000ne@2x.png */,
 				9A29E0E012A69A7E00C15BE6 /* 1000ne.png */,
 				320B6C86F11D9990244A9730 /* Three20.bundle */,
@@ -660,6 +673,19 @@
 			name = JSON;
 			path = Classes/JSON/Classes;
 			sourceTree = SOURCE_ROOT;
+		};
+		9A7088A912AE682500CFA94F /* regards */ = {
+			isa = PBXGroup;
+			children = (
+				9A7088AE12AE69D600CFA94F /* culture.png */,
+				9A7088AF12AE69D600CFA94F /* économie.png */,
+				9A7088B012AE69D600CFA94F /* identité.png */,
+				9A7088B112AE69D600CFA94F /* politique.png */,
+				9A7088B212AE69D600CFA94F /* religion.png */,
+				9A7088B312AE69D600CFA94F /* urbanisme.png */,
+			);
+			name = regards;
+			sourceTree = "<group>";
 		};
 		9A93A06112804A9C00FD6E1D /* Products */ = {
 			isa = PBXGroup;
@@ -1071,6 +1097,12 @@
 				9A99912D1292B28800BFE39A /* config.plist in Resources */,
 				9A29E0E112A69A7E00C15BE6 /* 1000ne.png in Resources */,
 				9A9CEF6312AE3C060059E5CB /* 1000ne@2x.png in Resources */,
+				9A7088B412AE69D600CFA94F /* culture.png in Resources */,
+				9A7088B512AE69D600CFA94F /* économie.png in Resources */,
+				9A7088B612AE69D600CFA94F /* identité.png in Resources */,
+				9A7088B712AE69D600CFA94F /* politique.png in Resources */,
+				9A7088B812AE69D600CFA94F /* religion.png in Resources */,
+				9A7088B912AE69D600CFA94F /* urbanisme.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -66,8 +66,7 @@
 	
 	NSURLRequest *eventsRequest = [NSURLRequest requestWithURL:
 								   [NSURL URLWithString:
-									[NSString stringWithFormat:@"http://%@/devios/test.json",
-									 ((MillenaireNEAppDelegate *)[[UIApplication sharedApplication] delegate]).servDomain]]];
+									 ((MillenaireNEAppDelegate *)[[UIApplication sharedApplication] delegate]).servDomain]];
 	eventsData = [[NSMutableData alloc] init];
 	NSURLConnection *eventsUrlConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
 	if(eventsUrlConnection) {
