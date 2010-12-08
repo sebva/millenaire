@@ -22,9 +22,16 @@
 	
 	//On récupère la grande image
 	TTNetworkRequestStarted();
+	NSLog(@"Démarrage de la requête");
+	NSLog(@"%d", objEvent.idE);
+	//NSLog(@"%@", [delegate.config objectForKey:@"domain"]);
+	//NSURL *urlRequest = [[NSURL alloc] initWithScheme:@"http" host:((NSString *)[delegate.config objectForKey:@"domain"])
+												// path:[NSString stringWithFormat:((NSString *)[delegate.config objectForKey:@"pathById"]), objEvent.idE]];
+	NSURL *urlRequest = [[NSURL alloc] initWithScheme:@"http" host:@"devinter.cpln.ch"
+												 path:[NSString stringWithFormat:@"/millenaire/michael/json_by_id.php?id=%d", objEvent.idE]];
 
-	NSURL *urlRequest = [[NSURL alloc] initWithScheme:@"http" host:[delegate.config objectForKey:@"domain"]
-												 path:[NSString stringWithFormat:[delegate.config objectForKey:@"pathById"], objEvent.idE]];
+	NSLog(@"OK");
+	NSLog([urlRequest description]);
 	NSURLRequest *eventsRequest = [NSURLRequest requestWithURL:urlRequest];
 	[urlRequest release];
 	
@@ -38,7 +45,7 @@
 	else {
 		//Ça marche pas :(
 		[detailsData release];
-		NSLog(@"Impossible d'obtenir une connection");
+		NSLog(@"Impossible d'obtenir une connexion");
 	}
 
 	self.title = self.objEvent.titre;
@@ -76,15 +83,26 @@
 	
 	NSLog(@"JSON:  %@", [jsonO description]);
 	
+	/*
+	 {
+	 "id": "41",
+	 "longdesc": "Savez-vous quels personnages célèbres se sont embrassés pour la 1ère fois sur un banc neuchâtelois ? Combien d’instruments de mesure y a-t-il sur la colonne météo ? Sur quel bâtiment trouve-t-on un gnome sculpté ? Et un diablotin ?\r\nLa chasse au trésor est une promenade dans la vieille ville ponctuée de 20 questions révélant un mot-mystère. Un petit cadeau récompensera vos efforts en fin de parcours. Mais également chasse aux trésors…. car il propose de découvrir (ou redécouvrir) quelques petits trésors de notre ville. Notre patrimoine commun fédère d’une manière ludique, accessible à tous.\r\nLe circuit se fait de manière autonome, il est très flexible d’utilisation. Seul ou en groupe, en famille, avec sa classe, à tout moment. L’objectif est de s’intéresser au lieu où nous vivons et de le regarder d’un œil plus curieux. A l’Office du tourisme, vous trouverez les dépliants, en plusieurs langues, qui vous conduiront de question en question jusqu’à la récompense finale. Nous célébrons un anniversaire, il s’agit de s’amuser ! En levant les yeux dans ces lieux familiers pendant une heure, ou deux, selon le temps à disposition.",
+	 "img": null,
+	 "adresse": null
+	 }
+	 */
+	
 	NSLog(@"Longdesc + adresse");
 	objEvent.longdesc = [jsonO objectForKey:@"longdesc"];
 	lblText.text = objEvent.longdesc;
 	
-	objEvent.adresse = [jsonO objectForKey:@"adr"];
+	if([[jsonO objectForKey:@"adresse"] class] != [NSNull class])
+		objEvent.adresse = [jsonO objectForKey:@"adresse"];
 	
 	//Image
 	NSLog(@"Image :");
-	pbx1.urlPath = [jsonO objectForKey:@"imgs"];
+	if([[jsonO objectForKey:@"img"] class] != [NSNull class])
+		pbx1.urlPath = [jsonO objectForKey:@"img"];
 	
 	TTNetworkRequestStopped();
 	

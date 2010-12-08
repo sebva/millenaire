@@ -131,11 +131,12 @@
 		NSLog(@"titre");
 		tmpEvenement.titre = [jsonO objectForKey:@"titre"];
 		NSLog(@"shortdesc");
-		tmpEvenement.shortdesc = [jsonO objectForKey:@"shortdesc"];
+		if([[jsonO objectForKey:@"shortdesc"] class] != [NSNull class])
+			tmpEvenement.shortdesc = [jsonO objectForKey:@"shortdesc"];
 		tmpEvenement.regard = [jsonO objectForKey:@"regard"];
 		
-		tmpEvenement.beginDate = [NSDate dateWithTimeIntervalSince1970:[[jsonO objectForKey:@"begindate"] intValue]];
-		tmpEvenement.endDate = [NSDate dateWithTimeIntervalSince1970:[[jsonO objectForKey:@"enddate"] intValue]];
+		//tmpEvenement.beginDate = [NSDate dateWithTimeIntervalSince1970:[[jsonO objectForKey:@"begindate"] intValue]];
+		//tmpEvenement.endDate = [NSDate dateWithTimeIntervalSince1970:[[jsonO objectForKey:@"enddate"] intValue]];
 		
 		//Image
 		
@@ -208,7 +209,7 @@
 calloutAccessoryControlTapped:(UIControl *)control { 
 	
 	Event *ann=view.annotation;
-	NSLog(@"%@ A été séléctionné !", ann.title);
+	NSLog(@"%@ A été séléctionné !", ann.titre);
 	
 	DetailsViewController *dvc = [[DetailsViewController alloc] initWithNibName:@"DetailsViewController" bundle:nil];
 	

@@ -7,6 +7,6 @@
 	<key>pathEvents</key>
 	<string>/millenaire/michael/json_events.php</string>
 	<key>pathById</key>
-	<string>/millenaire/michael/json_by_id.php?id=%@</string>
+	<string>/millenaire/michael/json_by_id.php?id=%d</string>
 </dict>
 </plist>
