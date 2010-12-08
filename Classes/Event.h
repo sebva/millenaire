@@ -20,6 +20,7 @@
 	UIImage *thumb;
 	NSArray *imgs;
 	NSString *adresse;
+	NSString *regard;
 	CLLocationCoordinate2D coordinate;
 	
 	//Constantes
@@ -44,5 +45,6 @@
 @property (nonatomic, retain) NSArray *imgs;
 @property (nonatomic) CLLocationCoordinate2D coordinate;
 @property (nonatomic, retain) NSString *adresse;
+@property (nonatomic, retain) NSString *regard;
 
 @end

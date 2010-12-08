@@ -20,6 +20,7 @@
 @synthesize thumb;
 @synthesize imgs;
 @synthesize adresse;
+@synthesize regard;
 @synthesize coordinate;
 
 //Constantes
