@@ -105,6 +105,20 @@
 	NSArray * jsonA = [jsonS JSONValue];
 	[jsonS release];
 	
+	/*
+	 {
+	 "id": "41",
+	 "titre": "Chasse au tr\u00e9sor en ville de Neuch\u00e2tel",
+	 "shortdesc": "Savez-vous quels personnages c&eacute;l&egrave;bres se sont embrass&eacute;s pour la 1&egrave;re fois sur un banc neuch&acirc;telois ? Combien d&rsquo;instruments de mesure y a-t-il sur la colonne m&eacute;t&eacute;o ? Sur quel b&acirc;timent trouve-t-on un gnome sculpt&eacute; ? Et un diablotin ?",
+	 "begindate": "2011-04-24 00:00:00",
+	 "enddate": "2011-09-25 00:00:00",
+	 "thumb": null,
+	 "lat": null,
+	 "lng": null,
+	 "regard": "identit\u00e9"
+	 }
+	 */
+	
 	for (int i = 0; i < [jsonA count]; i++) {
 		Event *tmpEvenement = [[Event alloc] init];
 		
@@ -112,26 +126,36 @@
 		
 		NSLog(@"%@", [jsonO description]);
 		
-		
-		NSDictionary *loc=[jsonO objectForKey:@"loc"];
+		NSLog(@"id");
 		tmpEvenement.idE = (NSInteger *)[[jsonO objectForKey:@"id"] integerValue];
+		NSLog(@"titre");
 		tmpEvenement.titre = [jsonO objectForKey:@"titre"];
+		NSLog(@"shortdesc");
 		tmpEvenement.shortdesc = [jsonO objectForKey:@"shortdesc"];
+		tmpEvenement.regard = [jsonO objectForKey:@"regard"];
 		
 		tmpEvenement.beginDate = [NSDate dateWithTimeIntervalSince1970:[[jsonO objectForKey:@"begindate"] intValue]];
 		tmpEvenement.endDate = [NSDate dateWithTimeIntervalSince1970:[[jsonO objectForKey:@"enddate"] intValue]];
 		
 		//Image
 		
-		if ([jsonO objectForKey:@"thumb"] != nil) {
+		NSLog(@"thumb");
+		if ([[jsonO objectForKey:@"thumb"] class] != [NSNull class] /*|| [jsonO objectForKey:@"thumb"] != nil*/) {
 			tmpEvenement.thumb = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[jsonO objectForKey:@"thumb"]]]];
 		}
 		else {
-			tmpEvenement.thumb = nil;
+			if(tmpEvenement.regard !=nil && tmpEvenement.regard != REGARD_NONLABELISE)
+				tmpEvenement.thumb = [UIImage imageNamed:[NSString stringWithFormat:@"%@.png", tmpEvenement.regard]];
+			else
+				tmpEvenement.thumb = nil;
 		}
 		
-		CLLocationCoordinate2D coord = {[[loc objectForKey:@"lat"] doubleValue], [[loc objectForKey:@"lng"] doubleValue]};
-		tmpEvenement.coordinate = coord;
+		NSLog(@"latlng");
+		if([[jsonO objectForKey:@"lat"] class] != [NSNull class] && [[jsonO objectForKey:@"lng"] class] != [NSNull class]) {
+			//if([jsonO objectForKey:@"lat"] != @"0.000000" && [jsonO objectForKey:@"lng"] != @"0.000000") {
+				tmpEvenement.coordinate = (CLLocationCoordinate2D){[[jsonO objectForKey:@"lat"] doubleValue], [[jsonO objectForKey:@"lng"] doubleValue]};
+			//}
+		}
 		
 		[eventsMap addAnnotation:tmpEvenement];
 		[tmpEvenement release];
