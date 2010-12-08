@@ -23,14 +23,16 @@
 	NSString *regard;
 	CLLocationCoordinate2D coordinate;
 	
-	//Constantes
-	extern NSString * const REGARD_CULTURE;
-	extern NSString * const REGARD_ECONOMIE;
-	extern NSString * const REGARD_IDENTITE;
-	extern NSString * const REGARD_POLITIQUE;
-	extern NSString * const REGARD_RELIGION;
-	extern NSString * const REGARD_URBANISME;
+	
 }
+
+//Constantes
+extern NSString * const REGARD_CULTURE;
+extern NSString * const REGARD_ECONOMIE;
+extern NSString * const REGARD_IDENTITE;
+extern NSString * const REGARD_POLITIQUE;
+extern NSString * const REGARD_RELIGION;
+extern NSString * const REGARD_URBANISME;
 
 - (NSString *) title;
 - (NSString *) subtitle;
