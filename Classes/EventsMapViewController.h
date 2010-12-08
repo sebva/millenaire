@@ -19,6 +19,7 @@
 	IBOutlet MKMapView *eventsMap;
 	NSMutableData *eventsData;
 	IBOutlet UIActivityIndicatorView *spinner;
+	MillenaireNEAppDelegate *delegate;
 }
 
 - (void)refreshEvents:(id)sender;

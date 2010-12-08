@@ -24,6 +24,8 @@
 	IBOutlet UITextView *lblText;
 	Event *objEvent;
 	
+	MillenaireNEAppDelegate *delegate;
+	
 	NSMutableData *detailsData;
 }
 

@@ -2,7 +2,11 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>servDomain</key>
-	<string>http://localhost/~MacMini/devios/new.json</string>
+	<key>domain</key>
+	<string>devinter.cpln.ch</string>
+	<key>pathEvents</key>
+	<string>/millenaire/michael/json_events.php</string>
+	<key>pathById</key>
+	<string>/millenaire/michael/json_by_id.php?id=%@</string>
 </dict>
 </plist>

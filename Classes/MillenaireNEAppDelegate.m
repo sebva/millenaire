@@ -12,7 +12,7 @@
 
 @implementation MillenaireNEAppDelegate
 
-@synthesize servDomain;
+@synthesize config;
 @synthesize window;
 @synthesize navigationController;
 @synthesize currentLocation;
@@ -28,7 +28,7 @@
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
 	
-	servDomain = (NSString *)[[NSString alloc] initWithString:[[NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"config" ofType:@"plist"]] objectForKey:@"servDomain"]];
+	config = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"config" ofType:@"plist"]];
 
 	//We admit that the user is located in Neuchatel
 	currentLocation = [[CLLocation alloc] initWithLatitude:46.990281 longitude:6.930567];
@@ -44,7 +44,7 @@
 #pragma mark Memory management
 
 - (void)dealloc {
-	[servDomain release];
+	[config release];
 	[navigationController release];
 	[[currentLocation retain] release];
 	[window release];

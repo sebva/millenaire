@@ -32,22 +32,23 @@
 									  initWithTitle:@"NE"
 									  style:UIBarButtonItemStyleBordered
 									  target:self action:@selector(centrerNe:)];
+	self.navigationItem.leftBarButtonItem = tmpLeftBarbtn;
+	[tmpLeftBarbtn release];
+	/*
 	UIBarButtonItem *tmpRightBarbtn = [[UIBarButtonItem alloc] 
 									   initWithTitle:NSLocalizedString(@"Actualiser", nil)
 									   style:UIBarButtonSystemItemRefresh
 									   target:self action:@selector(refreshEvents:)];
-	
-	self.navigationItem.leftBarButtonItem = tmpLeftBarbtn;
 	self.navigationItem.rightBarButtonItem = tmpRightBarbtn;
-	
-	
-	[tmpLeftBarbtn release];
 	[tmpRightBarbtn release];
+	//*/
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
 	[super viewDidLoad];
+	
+	delegate = ((MillenaireNEAppDelegate *)[[UIApplication sharedApplication] delegate]);
 	
 	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1000ne.png"]];
 	self.navigationItem.titleView = imageView;
@@ -64,9 +65,10 @@
 - (void)refreshEvents {
 	TTNetworkRequestStarted();
 	
-	NSURLRequest *eventsRequest = [NSURLRequest requestWithURL:
-								   [NSURL URLWithString:
-									 ((MillenaireNEAppDelegate *)[[UIApplication sharedApplication] delegate]).servDomain]];
+	NSURL *urlRequest = [[NSURL alloc] initWithScheme:@"http" host:[delegate.config objectForKey:@"domain"] path:[delegate.config objectForKey:@"pathEvents"]];
+	NSURLRequest *eventsRequest = [NSURLRequest requestWithURL:urlRequest];
+	[urlRequest release];
+	
 	eventsData = [[NSMutableData alloc] init];
 	NSURLConnection *eventsUrlConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
 	if(eventsUrlConnection) {

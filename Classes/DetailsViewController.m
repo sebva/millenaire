@@ -18,15 +18,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
+	delegate = ((MillenaireNEAppDelegate *)[[UIApplication sharedApplication] delegate]);
+	
 	//On récupère la grande image
 	TTNetworkRequestStarted();
+
+	NSURL *urlRequest = [[NSURL alloc] initWithScheme:@"http" host:[delegate.config objectForKey:@"domain"]
+												 path:[NSString stringWithFormat:[delegate.config objectForKey:@"pathById"], objEvent.idE]];
+	NSURLRequest *eventsRequest = [NSURLRequest requestWithURL:urlRequest];
+	[urlRequest release];
 	
-	NSURLRequest *eventsRequest = [NSURLRequest
-								   requestWithURL:[NSURL URLWithString:
-												   [NSString stringWithFormat:@"http://%@/devios/testd%i.json",
-												   ((MillenaireNEAppDelegate *)[[UIApplication sharedApplication] delegate]).servDomain,
-												   objEvent.idE]]];
 	detailsData = [[NSMutableData alloc] init];
+	
 	NSURLConnection *eventsUrlConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
 	if(eventsUrlConnection) {
 		//Ça va démarrer !
