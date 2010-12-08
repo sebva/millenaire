@@ -22,6 +22,14 @@
 @synthesize adresse;
 @synthesize coordinate;
 
+//Constantes
+NSString * const REGARD_CULTURE = @"culture";
+NSString * const REGARD_ECONOMIE = @"économie";
+NSString * const REGARD_IDENTITE = @"identité";
+NSString * const REGARD_POLITIQUE = @"politique";
+NSString * const REGARD_RELIGION = @"religion";
+NSString * const REGARD_URBANISME = @"urbanisme";
+
 - (NSString *) title {
 	return self.titre;
 }
