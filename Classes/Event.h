@@ -33,6 +33,7 @@ extern NSString * const REGARD_IDENTITE;
 extern NSString * const REGARD_POLITIQUE;
 extern NSString * const REGARD_RELIGION;
 extern NSString * const REGARD_URBANISME;
+extern NSString * const REGARD_NONLABELISE;
 
 - (NSString *) title;
 - (NSString *) subtitle;
