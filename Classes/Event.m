@@ -30,7 +30,7 @@ NSString * const REGARD_IDENTITE = @"identité";
 NSString * const REGARD_POLITIQUE = @"politique";
 NSString * const REGARD_RELIGION = @"religion";
 NSString * const REGARD_URBANISME = @"urbanisme";
-NSString * const REGARD_NONLABELISE = @"non-labélisé";
+NSString * const REGARD_NONLABELISE = @"non-labellisé";
 
 - (NSString *) title {
 	return self.titre;
