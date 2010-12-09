@@ -96,6 +96,20 @@
 	objEvent.longdesc = [jsonO objectForKey:@"longdesc"];
 	lblText.text = objEvent.longdesc;
 	
+	//Resize du UITextView
+	CGRect frame = lblText.frame;
+	frame.size.height = lblText.contentSize.height;
+	lblText.frame = frame;
+	
+	//Resize du UIScrollView en fonction de son contenu
+	CGFloat scrollViewHeight = 0.0f;
+	for (UIView* view in scrollView.subviews)
+	{
+		scrollViewHeight += view.frame.size.height;
+	}
+	
+	[scrollView setContentSize:(CGSizeMake(320, scrollViewHeight))];
+	
 	if([[jsonO objectForKey:@"adresse"] class] != [NSNull class])
 		objEvent.adresse = [jsonO objectForKey:@"adresse"];
 	

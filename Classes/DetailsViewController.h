@@ -22,6 +22,7 @@
 @interface DetailsViewController : UIViewController {
     IBOutlet TTImageView *pbx1;
 	IBOutlet UITextView *lblText;
+	IBOutlet UIScrollView *scrollView;
 	Event *objEvent;
 	
 	MillenaireNEAppDelegate *delegate;
