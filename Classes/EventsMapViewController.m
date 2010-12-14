@@ -197,7 +197,7 @@
 		NSLog(@"Pas d'image pour %@", ((Event *)annotationView.annotation).titre);
 		MKPinAnnotationView * pinView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:@"eventIdentifier"];
 		//TODO : utiliser une image par défaut
-		pinView.pinColor = MKPinAnnotationColorPurple;
+		pinView.pinColor = MKPinAnnotationColorRed;
 		pinView.canShowCallout = YES;
 		pinView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 		
