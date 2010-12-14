@@ -39,7 +39,7 @@
 					<object class="IBUIView" id="262301555">
 						<reference key="NSNextResponder" ref="889975803"/>
 						<int key="NSvFlags">1316</int>
-						<string key="NSFrameSize">{320, 205}</string>
+						<string key="NSFrame">{{4, 6}, {312, 205}}</string>
 						<reference key="NSSuperview" ref="889975803"/>
 						<object class="NSColor" key="IBUIBackgroundColor">
 							<int key="NSColorSpace">3</int>
@@ -49,16 +49,21 @@
 							</object>
 						</object>
 						<bool key="IBUIClearsContextBeforeDrawing">NO</bool>
-						<int key="IBUIContentMode">1</int>
+						<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
+							<integer value="4" key="IBUIAccessibilityTraits"/>
+						</object>
 					</object>
 					<object class="IBUITextView" id="1018317932">
 						<reference key="NSNextResponder" ref="889975803"/>
 						<int key="NSvFlags">1316</int>
-						<string key="NSFrame">{{20, 213}, {280, 60}}</string>
+						<string key="NSFrame">{{4, 213}, {312, 60}}</string>
 						<reference key="NSSuperview" ref="889975803"/>
+						<object class="NSColor" key="IBUIBackgroundColor">
+							<int key="NSColorSpace">2</int>
+							<bytes key="NSRGB">MC45ODgyMzUzNSAxIDAuOTk2MDc4NDkAA</bytes>
+						</object>
 						<bool key="IBUIOpaque">NO</bool>
 						<bool key="IBUIClipsSubviews">YES</bool>
-						<int key="IBUIContentMode">1</int>
 						<bool key="IBUIMultipleTouchEnabled">YES</bool>
 						<bool key="IBUIShowsHorizontalScrollIndicator">NO</bool>
 						<int key="IBUIIndicatorStyle">1</int>
@@ -349,6 +354,13 @@ y7bMNcy1zTXNtc42zrbPN8+40DnQutE80b7SP9LB00TTxtRJ1MvVTtXR1lXW2Ndc1+DYZNjo2WzZ8dp2
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">Classes/JSON/Classes/SBProxyForJson.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">TTImageView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBUserSource</string>
+						<string key="minorKey"/>
 					</object>
 				</object>
 			</object>

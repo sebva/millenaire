@@ -20,7 +20,7 @@
 	NEcoord.span.latitudeDelta = 0.0618432;
 	NEcoord.span.longitudeDelta = 0.1361188;
 	
-	[eventsMap setRegion:NEcoord animated:TRUE];
+	[eventsMap setRegion:NEcoord animated:YES];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
@@ -35,10 +35,10 @@
 	self.navigationItem.leftBarButtonItem = tmpLeftBarbtn;
 	[tmpLeftBarbtn release];
 	/*
-	UIBarButtonItem *tmpRightBarbtn = [[UIBarButtonItem alloc] 
-									   initWithTitle:NSLocalizedString(@"Actualiser", nil)
-									   style:UIBarButtonSystemItemRefresh
-									   target:self action:@selector(refreshEvents:)];
+	UIBarButtonItem *tmpRightBarbtn = [[UIBarButtonItem alloc]
+										initWithImage:[UIImage imageNamed:@"74-location.png"]
+										style:UIBarButtonItemStyleBordered
+										target:self action:@selector(centrerMoi:)];
 	self.navigationItem.rightBarButtonItem = tmpRightBarbtn;
 	[tmpRightBarbtn release];
 	//*/
@@ -49,6 +49,7 @@
 	[super viewDidLoad];
 	
 	delegate = ((MillenaireNEAppDelegate *)[[UIApplication sharedApplication] delegate]);
+	config = delegate.config;
 	
 	UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"1000ne.png"]];
 	self.navigationItem.titleView = imageView;

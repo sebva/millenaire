@@ -20,6 +20,7 @@
 	NSMutableData *eventsData;
 	IBOutlet UIActivityIndicatorView *spinner;
 	MillenaireNEAppDelegate *delegate;
+	NSDictionary* config;
 }
 
 - (void)refreshEvents:(id)sender;

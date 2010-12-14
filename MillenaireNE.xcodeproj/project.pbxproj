@@ -41,6 +41,7 @@
 		9A939FE7128044DB00FD6E1D /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A939FE6128044DB00FD6E1D /* CFNetwork.framework */; };
 		9A99912D1292B28800BFE39A /* config.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9A99912C1292B28800BFE39A /* config.plist */; };
 		9A9CEF6312AE3C060059E5CB /* 1000ne@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9A9CEF6212AE3C060059E5CB /* 1000ne@2x.png */; };
+		9AADA94E12B7A548008CD1E3 /* 74-location.png in Resources */ = {isa = PBXBuildFile; fileRef = 9AADA94D12B7A548008CD1E3 /* 74-location.png */; };
 		9AC9BBE5128990F200F24236 /* EventsMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A72DD8F1252174900455008 /* EventsMapViewController.xib */; };
 		9AC9BBEA128991DD00F24236 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9AC9BBE8128991DD00F24236 /* Localizable.strings */; };
 		BE5E98BB125526DF00320672 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BE5E98B9125526DF00320672 /* DetailsViewController.m */; };
@@ -448,6 +449,7 @@
 		9A93A06012804A9C00FD6E1D /* Three20.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Three20.xcodeproj; path = ./three20/src/Three20/Three20.xcodeproj; sourceTree = SOURCE_ROOT; };
 		9A99912C1292B28800BFE39A /* config.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = config.plist; sourceTree = "<group>"; };
 		9A9CEF6212AE3C060059E5CB /* 1000ne@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1000ne@2x.png"; sourceTree = "<group>"; };
+		9AADA94D12B7A548008CD1E3 /* 74-location.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "74-location.png"; sourceTree = "<group>"; };
 		9AAE054C128AD0540012DBBF /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AC9BBE9128991DD00F24236 /* fr */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9AC9BC06128992BE00F24236 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -542,6 +544,7 @@
 				BE60B41A126E4C9E00C97A27 /* icon-72.png */,
 				BE60B40E126E4A5300C97A27 /* icon.png */,
 				BE658E7912567F9400CE30C2 /* icon@2x.png */,
+				9AADA94D12B7A548008CD1E3 /* 74-location.png */,
 				BE5E98BA125526DF00320672 /* DetailsViewController.xib */,
 				9A72DD8F1252174900455008 /* EventsMapViewController.xib */,
 				BE60B3D0126E44F000C97A27 /* MainWindow_iPad.xib */,
@@ -1103,6 +1106,7 @@
 				9A7088B712AE69D600CFA94F /* politique.png in Resources */,
 				9A7088B812AE69D600CFA94F /* religion.png in Resources */,
 				9A7088B912AE69D600CFA94F /* urbanisme.png in Resources */,
+				9AADA94E12B7A548008CD1E3 /* 74-location.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

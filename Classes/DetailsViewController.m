@@ -20,6 +20,8 @@
 	
 	delegate = ((MillenaireNEAppDelegate *)[[UIApplication sharedApplication] delegate]);
 	
+	self.navigationController.navigationItem.backBarButtonItem.title = NSLocalizedString(@"Carte", nil);
+	
 	//On récupère la grande image
 	TTNetworkRequestStarted();
 	NSLog(@"Démarrage de la requête");
@@ -49,6 +51,14 @@
 	}
 
 	self.title = self.objEvent.titre;
+	
+	lblText.layer.borderWidth = 1;
+	lblText.layer.cornerRadius = 8;
+	//lblText.layer.borderColor = [[UIColor colorWithRed:193./255 green:2./255. blue:44./255. alpha:1.] CGColor];
+	
+	lblText.layer.borderWidth = 1;
+	lblText.layer.cornerRadius = 8;
+	lblText.layer.borderColor = [[UIColor colorWithRed:193./255 green:2./255. blue:44./255. alpha:1.] CGColor];
 	
 	pbx1.defaultImage = (UIImage *)objEvent.thumb;
 	
@@ -107,6 +117,7 @@
 	{
 		scrollViewHeight += view.frame.size.height;
 	}
+	scrollViewHeight += 10;
 	
 	[scrollView setContentSize:(CGSizeMake(320, scrollViewHeight))];
 	
@@ -115,8 +126,13 @@
 	
 	//Image
 	NSLog(@"Image :");
-	if([[jsonO objectForKey:@"img"] class] != [NSNull class])
-		pbx1.urlPath = [jsonO objectForKey:@"img"];
+	if([[jsonO objectForKey:@"image"] class] != [NSNull class])
+		objEvent.imgs = [jsonO objectForKey:@"image"];
+	
+	NSURL *url1Image = [[NSURL alloc] initWithScheme:@"http" host:@"live.event1000ne.ch" path:[NSString stringWithFormat:@"/%@", [objEvent.imgs objectAtIndex:0]]];
+	pbx1.urlPath = [url1Image absoluteString];
+	NSLog([url1Image absoluteString]);
+	[url1Image release];
 	
 	TTNetworkRequestStopped();
 	
