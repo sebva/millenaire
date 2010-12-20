@@ -1,10 +1,10 @@
-//
-//  DetailsViewController.m
-//  MillenaireNE
-//
-//  Created by Sébastien Vaucher on 30.09.10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
-//
+	//
+	//  DetailsViewController.m
+	//  MillenaireNE
+	//
+	//  Created by Sébastien Vaucher on 30.09.10.
+	//  Copyright 2010 __MyCompanyName__. All rights reserved.
+	//
 
 #import "DetailsViewController.h"
 
@@ -14,7 +14,16 @@
 @synthesize objEvent;
 
 
-// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
+	if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
+		self.variableHeightRows = YES;
+		self.tableViewStyle = UITableViewStylePlain; //Ou Grouped
+		
+	}
+	return self;
+}
+
+	// Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
 	
@@ -22,16 +31,16 @@
 	
 	self.navigationController.navigationItem.backBarButtonItem.title = NSLocalizedString(@"Carte", nil);
 	
-	//On récupère la grande image
+		//On récupère la grande image
 	TTNetworkRequestStarted();
 	NSLog(@"Démarrage de la requête");
 	NSLog(@"%d", objEvent.idE);
-	//NSLog(@"%@", [delegate.config objectForKey:@"domain"]);
-	//NSURL *urlRequest = [[NSURL alloc] initWithScheme:@"http" host:((NSString *)[delegate.config objectForKey:@"domain"])
-												// path:[NSString stringWithFormat:((NSString *)[delegate.config objectForKey:@"pathById"]), objEvent.idE]];
+		//NSLog(@"%@", [delegate.config objectForKey:@"domain"]);
+		//NSURL *urlRequest = [[NSURL alloc] initWithScheme:@"http" host:((NSString *)[delegate.config objectForKey:@"domain"])
+		// path:[NSString stringWithFormat:((NSString *)[delegate.config objectForKey:@"pathById"]), objEvent.idE]];
 	NSURL *urlRequest = [[NSURL alloc] initWithScheme:@"http" host:@"devinter.cpln.ch"
 												 path:[NSString stringWithFormat:@"/millenaire/michael/json_by_id.php?id=%d", objEvent.idE]];
-
+	
 	NSLog(@"OK");
 	NSLog([urlRequest description]);
 	NSURLRequest *eventsRequest = [NSURLRequest requestWithURL:urlRequest];
@@ -41,26 +50,64 @@
 	
 	NSURLConnection *eventsUrlConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
 	if(eventsUrlConnection) {
-		//Ça va démarrer !
+			//Ça va démarrer !
 		NSLog(@"Démarrage de la connexion");
 	}
 	else {
-		//Ça marche pas :(
+			//Ça marche pas :(
 		[detailsData release];
 		NSLog(@"Impossible d'obtenir une connexion");
 	}
-
+	
 	self.title = self.objEvent.titre;
 	
-	lblText.layer.borderWidth = 1;
-	lblText.layer.cornerRadius = 8;
-	//lblText.layer.borderColor = [[UIColor colorWithRed:193./255 green:2./255. blue:44./255. alpha:1.] CGColor];
+	NSString *kLoremIpsum = @"adkjsiufgerbg";
 	
-	lblText.layer.borderWidth = 1;
-	lblText.layer.cornerRadius = 8;
-	lblText.layer.borderColor = [[UIColor colorWithRed:193./255 green:2./255. blue:44./255. alpha:1.] CGColor];
+	self.dataSource = [TTSectionedDataSource dataSourceWithObjects:
+					   @"Position",
+					   [TTTableTextItem itemWithText:@"TTTableTextItem" URL:@"tt://tableItemTest"
+										accessoryURL:@"http://www.google.com"],
+					   [TTTableLink itemWithText:@"TTTableLink" URL:@"tt://tableItemTest"],
+					   [TTTableButton itemWithText:@"TTTableButton"],
+					   [TTTableCaptionItem itemWithText:@"TTTableCaptionItem" caption:@"caption"
+													URL:@"tt://tableItemTest"],
+					   [TTTableSubtitleItem itemWithText:@"TTTableSubtitleItem" subtitle:kLoremIpsum
+													URL:@"tt://tableItemTest"],
+					   // [TTTableMessageItem itemWithTitle:@"Bob Jones" caption:@"TTTableMessageItem"
+					   //							text:kLoremIpsum timestamp:[NSDate date] URL:@"tt://tableItemTest"],
+					   [TTTableMoreButton itemWithText:@"TTTableMoreButton"],
+					   
+					   @"Image",
+					   // [TTTableImageItem itemWithText:@"TTTableImageItem" imageURL:localImage
+					   //						  URL:@"tt://tableItemTest"],
+					   //  [TTTableRightImageItem itemWithText:@"TTTableRightImageItem" imageURL:localImage
+					   //					  defaultImage:nil imageStyle:TTSTYLE(rounded)
+					   //							   URL:@"tt://tableItemTest"],
+					   // [TTTableSubtitleItem itemWithText:@"TTTableSubtitleItem" subtitle:kLoremIpsum
+					   //						imageURL:remoteImage defaultImage:defaultPerson
+					   //							 URL:@"tt://tableItemTest" accessoryURL:nil],
+					   //[TTTableMessageItem itemWithTitle:@"Bob Jones" caption:@"TTTableMessageItem"
+					   //							text:kLoremIpsum timestamp:[NSDate date]
+					   //						imageURL:remoteImage URL:@"tt://tableItemTest"],
+					   
+					   @"Static Text",
+					   [TTTableTextItem itemWithText:@"TTTableItem"],
+					   [TTTableCaptionItem itemWithText:@"TTTableCaptionItem which wraps to several lines"
+												caption:@"Text"],
+					   [TTTableSubtextItem itemWithText:@"TTTableSubtextItem"
+												caption:kLoremIpsum],
+					   [TTTableLongTextItem itemWithText:[@"TTTableLongTextItem "
+														  stringByAppendingString:kLoremIpsum]],
+					   [TTTableGrayTextItem itemWithText:[@"TTTableGrayTextItem "
+														  stringByAppendingString:kLoremIpsum]],
+					   [TTTableSummaryItem itemWithText:@"TTTableSummaryItem"],
+					   
+					   @"",
+					   [TTTableActivityItem itemWithText:@"TTTableActivityItem"],
+					   
+					   nil];
 	
-	pbx1.defaultImage = (UIImage *)objEvent.thumb;
+		//pbx1.defaultImage = (UIImage *)objEvent.thumb;
 	
 	UIBarButtonItem *tmpRightBarbtn = [[UIBarButtonItem alloc] initWithTitle:@"Navi" style:UIBarButtonItemStyleBordered target:self action:@selector(naviTo:)];
 	
@@ -104,45 +151,47 @@
 	
 	NSLog(@"Longdesc + adresse");
 	objEvent.longdesc = [jsonO objectForKey:@"longdesc"];
-	lblText.text = objEvent.longdesc;
+		//lblText.text = objEvent.longdesc;
 	
-	//Resize du UITextView
-	CGRect frame = lblText.frame;
-	frame.size.height = lblText.contentSize.height;
-	lblText.frame = frame;
+		//Resize du UITextView
+		//CGRect frame = lblText.frame;
+		//frame.size.height = lblText.contentSize.height;
+		//lblText.frame = frame;
 	
-	//Resize du UIScrollView en fonction de son contenu
+		//Resize du UIScrollView en fonction de son contenu
 	CGFloat scrollViewHeight = 0.0f;
-	for (UIView* view in scrollView.subviews)
+	/*
+	 for (UIView* view in scrollView.subviews)
 	{
 		scrollViewHeight += view.frame.size.height;
 	}
+	 //*/
 	scrollViewHeight += 10;
 	
-	[scrollView setContentSize:(CGSizeMake(320, scrollViewHeight))];
+		//[scrollView setContentSize:(CGSizeMake(320, scrollViewHeight))];
 	
 	if([[jsonO objectForKey:@"adresse"] class] != [NSNull class])
 		objEvent.adresse = [jsonO objectForKey:@"adresse"];
 	
-	//Image
+		//Image
 	NSLog(@"Image :");
 	if([[jsonO objectForKey:@"image"] class] != [NSNull class])
 		objEvent.imgs = [jsonO objectForKey:@"image"];
 	
 	NSURL *url1Image = [[NSURL alloc] initWithScheme:@"http" host:@"live.event1000ne.ch" path:[NSString stringWithFormat:@"/%@", [objEvent.imgs objectAtIndex:0]]];
-	pbx1.urlPath = [url1Image absoluteString];
+		//pbx1.urlPath = [url1Image absoluteString];
 	NSLog([url1Image absoluteString]);
 	[url1Image release];
 	
 	TTNetworkRequestStopped();
 	
-	//Cette ligne doit être éxécutée à la fin des traitements
+		//Cette ligne doit être éxécutée à la fin des traitements
 	[detailsData release];
 }
 
 - (void)naviTo:(id)sender {
 	
-	//TODO: récupérer la position actuelle
+		//TODO: récupérer la position actuelle
 	CLLocationCoordinate2D currLoc=((CLLocation *)((MillenaireNEAppDelegate *)[[UIApplication sharedApplication] delegate]).currentLocation).coordinate;
 	
 	NSURL *url = [[NSURL alloc] initWithScheme:@"http"
@@ -161,24 +210,24 @@
 	[ttweb release];
 }
 
-// Override to allow orientations other than the default portrait orientation.
+	// Override to allow orientations other than the default portrait orientation.
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	//Sur iPhone: tout sauf upsideDown; Sur iPad: tout
+		//Sur iPhone: tout sauf upsideDown; Sur iPad: tout
 	return TTIsSupportedOrientation(interfaceOrientation);
 }
 
 
 - (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
+		// Releases the view if it doesn't have a superview.
 	[super didReceiveMemoryWarning];
 	
-	// Release any cached data, images, etc that aren't in use.
+		// Release any cached data, images, etc that aren't in use.
 }
 
 - (void)viewDidUnload {
 	[super viewDidUnload];
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
+		// Release any retained subviews of the main view.
+		// e.g. self.myOutlet = nil;
 }
 
 

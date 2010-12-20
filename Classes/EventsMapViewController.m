@@ -212,8 +212,8 @@ calloutAccessoryControlTapped:(UIControl *)control {
 	Event *ann=view.annotation;
 	NSLog(@"%@ A été séléctionné !", ann.titre);
 	
-	DetailsViewController *dvc = [[DetailsViewController alloc] initWithNibName:@"DetailsViewController" bundle:nil];
-	
+	DetailsViewController *dvc = [[DetailsViewController alloc] initWithNibName:nil bundle:nil];
+	dvc.navigationBarTintColor = [UIColor colorWithWhite:0.74 alpha:0.0];
 	((MillenaireNEAppDelegate *)[UIApplication sharedApplication].delegate).currentLocation = eventsMap.userLocation.location;
 	dvc.objEvent = ann;
 	[self.navigationController pushViewController:dvc animated:YES];
