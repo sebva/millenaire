@@ -51,6 +51,7 @@
 		BE60B41B126E4C9E00C97A27 /* icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = BE60B41A126E4C9E00C97A27 /* icon-72.png */; };
 		BE658E7A12567F9400CE30C2 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = BE658E7912567F9400CE30C2 /* icon@2x.png */; };
 		BE82D2C512568C2C00AF02A3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE82D2C412568C2C00AF02A3 /* CoreLocation.framework */; };
+		BEC67CF212BFF26F002AC88C /* LauncherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BEC67CF112BFF26F002AC88C /* LauncherViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -461,6 +462,8 @@
 		BE60B41A126E4C9E00C97A27 /* icon-72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-72.png"; sourceTree = "<group>"; };
 		BE658E7912567F9400CE30C2 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		BE82D2C412568C2C00AF02A3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		BEC67CF012BFF26F002AC88C /* LauncherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LauncherViewController.h; sourceTree = "<group>"; };
+		BEC67CF112BFF26F002AC88C /* LauncherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LauncherViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -491,6 +494,8 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				BEC67CF012BFF26F002AC88C /* LauncherViewController.h */,
+				BEC67CF112BFF26F002AC88C /* LauncherViewController.m */,
 				9A155F08129410EE0037B16D /* JSON */,
 				1D3623240D0F684500981E51 /* MillenaireNEAppDelegate.h */,
 				1D3623250D0F684500981E51 /* MillenaireNEAppDelegate.m */,
@@ -735,8 +740,12 @@
 /* Begin PBXProject section */
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = CPLN;
+			};
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "MillenaireNE" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -1128,6 +1137,7 @@
 				9A155F1A129410EE0037B16D /* SBJsonParser.m in Sources */,
 				9A155F1B129410EE0037B16D /* SBJsonStreamWriter.m in Sources */,
 				9A155F1C129410EE0037B16D /* SBJsonWriter.m in Sources */,
+				BEC67CF212BFF26F002AC88C /* LauncherViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1249,7 +1259,7 @@
 					"-ObjC",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.3;
+				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -1267,7 +1277,7 @@
 					"-ObjC",
 				);
 				PREBINDING = NO;
-				SDKROOT = iphoneos3.1.3;
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};

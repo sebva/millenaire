@@ -151,10 +151,14 @@
 												currLoc.latitude, currLoc.longitude, NSLocalizedString(@"Ma position", nil),
 												objEvent.coordinate.latitude, objEvent.coordinate.longitude, objEvent.titre,
 												[[NSLocale currentLocale] objectForKey:NSLocaleLanguageCode]]];
+		//NSURL *url = [[NSURL alloc] initWithString:@"http://www.google.com"];
 	
-	[self.navigationController pushViewController:TTOpenURL([url absoluteString]) animated:YES];
+	TTWebController *ttweb = [[TTWebController alloc] init];
 	
+	[self.navigationController pushViewController:ttweb animated:YES];
+	[ttweb openURL:url];
 	[url release];
+	[ttweb release];
 }
 
 // Override to allow orientations other than the default portrait orientation.
