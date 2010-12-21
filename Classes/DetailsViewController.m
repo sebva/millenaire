@@ -30,7 +30,7 @@
 	//NSURL *urlRequest = [[NSURL alloc] initWithScheme:@"http" host:((NSString *)[delegate.config objectForKey:@"domain"])
 												// path:[NSString stringWithFormat:((NSString *)[delegate.config objectForKey:@"pathById"]), objEvent.idE]];
 	NSURL *urlRequest = [[NSURL alloc] initWithScheme:@"http" host:@"devinter.cpln.ch"
-												 path:[NSString stringWithFormat:@"/millenaire/michael/json_by_id.php?id=%d", objEvent.idE]];
+												 path:[NSString stringWithFormat:@"/millenaire/michael/millenaire/json_by_id.php?id=%d", objEvent.idE]];
 
 	NSLog(@"OK");
 	NSLog([urlRequest description]);
@@ -66,8 +66,6 @@
 	
 	self.navigationItem.rightBarButtonItem = tmpRightBarbtn;
 	[tmpRightBarbtn release];
-	
-	
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
@@ -88,7 +86,7 @@
 	
 	NSLog(jsonS);
 	
-	NSDictionary * jsonO = [jsonS JSONValue];
+	NSDictionary * jsonO = [[jsonS JSONValue] retain];
 	[jsonS release];
 	
 	NSLog(@"JSON:  %@", [jsonO description]);
@@ -129,7 +127,9 @@
 	if([[jsonO objectForKey:@"image"] class] != [NSNull class])
 		objEvent.imgs = [jsonO objectForKey:@"image"];
 	
-	NSURL *url1Image = [[NSURL alloc] initWithScheme:@"http" host:@"live.event1000ne.ch" path:[NSString stringWithFormat:@"/%@", [objEvent.imgs objectAtIndex:0]]];
+	NSURL *url1Image;
+	if([objEvent.imgs objectAtIndex:0] != [NSNull class])
+		url1Image = [[NSURL alloc] initWithScheme:@"http" host:@"live.event1000ne.ch" path:[NSString stringWithFormat:@"/%@", [objEvent.imgs objectAtIndex:0]]];
 	pbx1.urlPath = [url1Image absoluteString];
 	NSLog([url1Image absoluteString]);
 	[url1Image release];
@@ -138,6 +138,8 @@
 	
 	//Cette ligne doit être éxécutée à la fin des traitements
 	[detailsData release];
+	[jsonO release];
+	NSLog(@"Release du detailsData OK");
 }
 
 - (void)naviTo:(id)sender {
@@ -176,9 +178,13 @@
 }
 
 - (void)viewDidUnload {
-	[super viewDidUnload];
 	// Release any retained subviews of the main view.
 	// e.g. self.myOutlet = nil;
+	[pbx1 release];
+	[lblText release];
+	[scrollView release];
+	
+	[super viewDidUnload];
 }
 
 
