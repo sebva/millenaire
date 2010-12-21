@@ -124,13 +124,16 @@
 	
 	//Image
 	NSLog(@"Image :");
-	if([[jsonO objectForKey:@"image"] class] != [NSNull class])
+	if([[jsonO objectForKey:@"image"] class] != [NSNull class]) {
+		NSLog(@"image non nil");
 		objEvent.imgs = [jsonO objectForKey:@"image"];
+		NSLog([objEvent.imgs description]);
+	}
 	
 	NSURL *url1Image;
 	if([objEvent.imgs objectAtIndex:0] != [NSNull class])
 		url1Image = [[NSURL alloc] initWithScheme:@"http" host:@"live.event1000ne.ch" path:[NSString stringWithFormat:@"/%@", [objEvent.imgs objectAtIndex:0]]];
-	pbx1.urlPath = [[url1Image absoluteString] copy];
+	pbx1.urlPath = [[[url1Image absoluteString] copy] autorelease];
 	NSLog([url1Image absoluteString]);
 	[url1Image release];
 	

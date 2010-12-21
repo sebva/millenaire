@@ -17,19 +17,21 @@
 	MKCoordinateRegion NEcoord;
 	NEcoord.center.latitude = 46.9920060;
 	NEcoord.center.longitude = 6.9309210;
-	NEcoord.span.latitudeDelta = 0.0618432;
-	NEcoord.span.longitudeDelta = 0.1361188;
+	NEcoord.span.latitudeDelta = 0.0618432/3.0;
+	NEcoord.span.longitudeDelta = 0.1361188/3.0;
 	
 	[eventsMap setRegion:NEcoord animated:YES];
 }
 
 - (void)afficherBoutons {
+	/*
 	UIBarButtonItem *tmpLeftBarbtn = [[UIBarButtonItem alloc]
 									  initWithTitle:@"NE"
 									  style:UIBarButtonItemStyleBordered
 									  target:self action:@selector(centrerNe:)];
 	self.navigationItem.leftBarButtonItem = tmpLeftBarbtn;
 	[tmpLeftBarbtn release];
+	//*/
 	/*
 	UIBarButtonItem *tmpRightBarbtn = [[UIBarButtonItem alloc]
 										initWithImage:[UIImage imageNamed:@"74-location.png"]
@@ -140,7 +142,7 @@
 		NSLog(@"thumb");
 		if ([[jsonO objectForKey:@"thumb"] class] != [NSNull class] /*|| [jsonO objectForKey:@"thumb"] != nil*/) {
 			UIImage *tmpImage = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[jsonO objectForKey:@"thumb"]]]];
-			tmpEvenement.thumb = [tmpImage copy];
+			tmpEvenement.thumb = tmpImage;
 			[tmpImage release];
 		}
 		else {
@@ -242,8 +244,6 @@ calloutAccessoryControlTapped:(UIControl *)control {
 
 
 - (void)dealloc {
-	if(nil == eventsData)
-		[eventsData release];
 	[eventsMap release];
 	[super dealloc];
 }
