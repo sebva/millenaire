@@ -23,10 +23,6 @@
 	[eventsMap setRegion:NEcoord animated:YES];
 }
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
-	//TODO: Update the user's location automatically
-}
-
 - (void)afficherBoutons {
 	UIBarButtonItem *tmpLeftBarbtn = [[UIBarButtonItem alloc]
 									  initWithTitle:@"NE"
@@ -103,7 +99,7 @@
 	
 	NSString *jsonS = [[NSString alloc] initWithData:eventsData encoding:NSUTF8StringEncoding];
 	
-	NSArray * jsonA = [jsonS JSONValue];
+	NSArray * jsonA = [[NSArray alloc] initWithArray:[jsonS JSONValue]];
 	[jsonS release];
 	
 	/*
@@ -143,7 +139,9 @@
 		
 		NSLog(@"thumb");
 		if ([[jsonO objectForKey:@"thumb"] class] != [NSNull class] /*|| [jsonO objectForKey:@"thumb"] != nil*/) {
-			tmpEvenement.thumb = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[jsonO objectForKey:@"thumb"]]]];
+			UIImage *tmpImage = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[jsonO objectForKey:@"thumb"]]]];
+			tmpEvenement.thumb = [tmpImage copy];
+			[tmpImage release];
 		}
 		else {
 			if(tmpEvenement.regard !=nil && tmpEvenement.regard != REGARD_NONLABELISE)
@@ -209,7 +207,7 @@
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view 
 calloutAccessoryControlTapped:(UIControl *)control { 
 	
-	Event *ann=view.annotation;
+	Event *ann=[view.annotation retain];
 	NSLog(@"%@ A été séléctionné !", ann.titre);
 	
 	DetailsViewController *dvc = [[DetailsViewController alloc] initWithNibName:@"DetailsViewController" bundle:nil];
@@ -217,6 +215,7 @@ calloutAccessoryControlTapped:(UIControl *)control {
 	((MillenaireNEAppDelegate *)[UIApplication sharedApplication].delegate).currentLocation = eventsMap.userLocation.location;
 	dvc.objEvent = ann;
 	[self.navigationController pushViewController:dvc animated:YES];
+	[ann release];
 	[dvc release];
 }
 
@@ -243,6 +242,8 @@ calloutAccessoryControlTapped:(UIControl *)control {
 
 
 - (void)dealloc {
+	if(nil == eventsData)
+		[eventsData release];
 	[eventsMap release];
 	[super dealloc];
 }

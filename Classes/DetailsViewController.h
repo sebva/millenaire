@@ -30,6 +30,8 @@
 	NSMutableData *detailsData;
 }
 
+- (void)naviTo:(id)sender;
+
 @property (nonatomic, retain) Event *objEvent;
 
 @end

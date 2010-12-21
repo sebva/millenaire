@@ -28,7 +28,9 @@
 	[window addSubview:[navigationController view]];
     [window makeKeyAndVisible];
 	
-	config = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"config" ofType:@"plist"]];
+	[[TTURLRequestQueue mainQueue] setMaxContentLength:0];
+	
+	config = [[NSDictionary alloc] initWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"config" ofType:@"plist"]];
 
 	//We admit that the user is located in Neuchatel
 	currentLocation = [[CLLocation alloc] initWithLatitude:46.990281 longitude:6.930567];

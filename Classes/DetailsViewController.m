@@ -34,12 +34,13 @@
 
 	NSLog(@"OK");
 	NSLog([urlRequest description]);
-	NSURLRequest *eventsRequest = [NSURLRequest requestWithURL:urlRequest];
+	NSURLRequest *eventsRequest = [[NSURLRequest alloc] initWithURL:urlRequest];
 	[urlRequest release];
 	
 	detailsData = [[NSMutableData alloc] init];
 	
 	NSURLConnection *eventsUrlConnection = [[NSURLConnection alloc] initWithRequest:eventsRequest delegate:self];
+	[eventsRequest release];
 	if(eventsUrlConnection) {
 		//Ça va démarrer !
 		NSLog(@"Démarrage de la connexion");
@@ -50,8 +51,7 @@
 		NSLog(@"Impossible d'obtenir une connexion");
 	}
 
-	self.title = self.objEvent.titre;
-	
+	self.title = [self.objEvent.titre copy];
 	lblText.layer.borderWidth = 1;
 	lblText.layer.cornerRadius = 8;
 	//lblText.layer.borderColor = [[UIColor colorWithRed:193./255 green:2./255. blue:44./255. alpha:1.] CGColor];
@@ -130,7 +130,7 @@
 	NSURL *url1Image;
 	if([objEvent.imgs objectAtIndex:0] != [NSNull class])
 		url1Image = [[NSURL alloc] initWithScheme:@"http" host:@"live.event1000ne.ch" path:[NSString stringWithFormat:@"/%@", [objEvent.imgs objectAtIndex:0]]];
-	pbx1.urlPath = [url1Image absoluteString];
+	pbx1.urlPath = [[url1Image absoluteString] copy];
 	NSLog([url1Image absoluteString]);
 	[url1Image release];
 	
@@ -139,7 +139,6 @@
 	//Cette ligne doit être éxécutée à la fin des traitements
 	[detailsData release];
 	[jsonO release];
-	NSLog(@"Release du detailsData OK");
 }
 
 - (void)naviTo:(id)sender {
@@ -157,10 +156,14 @@
 	
 	TTWebController *ttweb = [[TTWebController alloc] init];
 	
+	[[UIApplication sharedApplication] openURL:url];
+	[url release];
+	
+	/*
 	[self.navigationController pushViewController:ttweb animated:YES];
 	[ttweb openURL:url];
-	[url release];
 	[ttweb release];
+	//*/
 }
 
 // Override to allow orientations other than the default portrait orientation.
@@ -189,10 +192,7 @@
 
 
 - (void)dealloc {
-	[objEvent.imgs release];
 	[objEvent release];
-	if(detailsData == nil)
-		[detailsData release];
 	[super dealloc];
 }
 

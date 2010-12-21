@@ -15,7 +15,7 @@
 #import <Three20/Three20.h>
 
 
-@interface EventsMapViewController : UIViewController <MKMapViewDelegate, CLLocationManagerDelegate> {
+@interface EventsMapViewController : UIViewController <MKMapViewDelegate> {
 	IBOutlet MKMapView *eventsMap;
 	NSMutableData *eventsData;
 	IBOutlet UIActivityIndicatorView *spinner;
@@ -26,7 +26,14 @@
 - (void)refreshEvents:(id)sender;
 - (void)refreshEvents;
 
-- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation;
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control;
+- (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation;
+
+- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response;
+- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)someData;
+- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error;
+- (void)connectionDidFinishLoading:(NSURLConnection *)connection;
+
 
 @property (retain) MKMapView *eventsMap;
 

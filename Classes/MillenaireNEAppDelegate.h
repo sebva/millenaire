@@ -14,7 +14,7 @@
 	CLLocation *currentLocation;
 }
 
-@property (nonatomic, retain) NSDictionary *config;
+@property (retain) NSDictionary *config;
 @property (nonatomic, retain) IBOutlet UIWindow *window;
 @property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 @property (nonatomic, retain) CLLocation *currentLocation;
