@@ -5,8 +5,8 @@
 	<key>domain</key>
 	<string>devinter.cpln.ch</string>
 	<key>pathEvents</key>
-	<string>/millenaire/michael/json_events.php</string>
+	<string>/millenaire/michael/millenaire/json_events.php</string>
 	<key>pathById</key>
-	<string>/millenaire/michael/json_by_id.php?id=%d</string>
+	<string>/millenaire/michael/millenaire/json_by_id.php?id=%d</string>
 </dict>
 </plist>
